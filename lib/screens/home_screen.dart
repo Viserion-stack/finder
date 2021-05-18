@@ -21,7 +21,7 @@ class _HomeScreenState extends State<HomeScreen> {
   void initState() {
     _pages = [
       {
-        'page': AllScreen(),
+        'page': HomeWindow(),
         'title': 'Home',
       },
       {

@@ -1,216 +1,201 @@
 import 'package:flutter/material.dart';
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:giraffe/screens/nierozlaczny_screen.dart';
 import 'package:giraffe/screens/rozlaczny_screen.dart';
 import 'package:giraffe/screens/slizgowy_screen.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-class AllScreen extends StatefulWidget {
-  AllScreen({Key key}) : super(key: key);
-
+class HomeWindow extends StatefulWidget {
   @override
-  _AllScreenState createState() => _AllScreenState();
+  _HomeWindowState createState() => _HomeWindowState();
 }
 
-// Future<void> _refreshRandomPhotos(BuildContext context) async {
-//   await Provider.of<Items>(context, listen: false).fetchAndSetRandomPhotos();
-// }
-
-class _AllScreenState extends State<AllScreen> {
-  _onAlertButtonsPressed(_) {
-    //final settings = Provider.of<SettingsUser>(context);
-    Alert(
-      style: AlertStyle(
-        //alertBorder: ,
-        overlayColor: Color(0xDBEEEEEE),
-        backgroundColor: Colors.white,
-      ),
-      context: context,
-      type: AlertType.none,
-      title: 'Autor: Mateusz Molicki',
-      desc: 'Temat: Temat \n Rok: Rok',
-      buttons: [
-        // DialogButton(
-        //   radius: BorderRadius.circular(27),
-        //   child: Padding(
-        //     padding: const EdgeInsets.only(left: 10.0, right: 10),
-        //     child: Row(children: [
-        //       Icon(
-        //         Icons.collections,
-        //         color: Colors.white,
-        //         size: 20,
-        //       ),
-        //       SizedBox(width: 5),
-        //       Text(
-        //         "Gallery",
-        //         style: TextStyle(color: Colors.white, fontSize: 16),
-        //       ),
-        //     ]),
-        //   ),
-        //   onPressed: () {
-        //     Navigator.pop(context);
-        //   },
-        //   color: Color(0xFFF8BB06),
-        // ),
-        DialogButton(
-          width: 100,
-          radius: BorderRadius.circular(27),
-          child: Padding(
-            padding: const EdgeInsets.only(left: 10.0, right: 10),
-            child: Row(children: [
-              Icon(
-                Icons.check,
-                color: Colors.white,
-                size: 20,
-              ),
-              SizedBox(width: 5),
-              Text(
-                "OK",
-                style: TextStyle(color: Colors.white, fontSize: 16),
-              ),
-            ]),
-          ),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          color: Color(0xFFF8BB06),
-        )
-      ],
-    ).show();
-  }
-
-  @override
-  void initState() {
-    WidgetsBinding.instance.addPostFrameCallback(_onAlertButtonsPressed);
-    print('aaaa');
-    super.initState();
-  }
-
+class _HomeWindowState extends State<HomeWindow> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-        title: Text('Strona Główna'),
-        // actions: <Widget>[
-        //   IconButton(
-        //       icon: Icon(Icons.shuffle),
-        //       onPressed: () {
-        //         Provider.of<Items>(context, listen: false)
-        //             .fetchAndSetRandomPhotos('');
-        //       }),
-        // IconButton(
-        //     icon: Icon(Icons.search),
-        //     onPressed: () {
-        //       showSearch(context: context, delegate: DataSearch());
-        //     }),
-        //],
-      ),
-      body: SafeArea(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20),
-          child: Column(children: [
-            Text(
-              'MATERAŁY STYKOWE STOSOWANE W ELEKTROTECHNICE',
-              style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
-            ),
-            SizedBox(
-              height: 50,
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 48.0),
-              child: Text(
-                'PRZEZNACZENIE STYKU',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-              ),
-            ),
-            SizedBox(
-              height: 20,
-            ),
-            Center(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFF8BB06),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => SlizgowyScreen()),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        'Styk Ślizgowy',
-                        style: TextStyle(
+        body: WindowBorder(
+            color: Colors.black,
+            width: 1,
+            child: Row(children: [LeftSide(), RightSide()])));
+  }
+}
+
+const sidebarColor = Color(0xFFF6A00C);
+
+class LeftSide extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        width: 200,
+        child: Container(
+            color: sidebarColor,
+            child: Column(
+              children: [
+                WindowTitleBarBox(child: MoveWindow()),
+                Expanded(
+                    child: Container(
+                  child: Column(
+                    children: [
+                      Text(
+                        'Select things',
+                        style: GoogleFonts.quicksand(
+                          fontSize: 24,
                           color: Colors.white,
-                          fontSize: 25,
+                          fontWeight: FontWeight.bold,
                         ),
                       ),
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFF8BB06),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                      SizedBox(
+                        height: 30,
                       ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => RozlacznyScreen()),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        'Styk Rozłączny',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SlizgowyScreen()));
+                        },
+                        child: Container(
+                          width: 180,
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                'Styk slizgowy',
+                                style: GoogleFonts.quicksand(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.white, width: 1),
+                          ),
                         ),
                       ),
-                    ),
-                  ),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFF8BB06),
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(5)),
+                      SizedBox(
+                        height: 10,
                       ),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => NierozlacznyScreen()),
-                      );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(10.0),
-                      child: Text(
-                        'Styk Nierozłączny',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 25,
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => NierozlacznyScreen()));
+                        },
+                        child: Container(
+                          width: 180,
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                'Styk Nierozłączny',
+                                style: GoogleFonts.quicksand(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.white, width: 1),
+                          ),
                         ),
                       ),
-                    ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => RozlacznyScreen()));
+                        },
+                        child: Container(
+                          width: 180,
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                'Styk Rozłączny',
+                                style: GoogleFonts.quicksand(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.white, width: 1),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 10,
+                      ),
+                    ],
                   ),
-                ],
-              ),
+                ))
+              ],
+            )));
+  }
+}
+
+const backgroundStartColor = Color(0xFFFFD500);
+const backgroundEndColor = Color(0xFFF6A00C);
+
+class RightSide extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+        child: Container(
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [backgroundStartColor, backgroundEndColor],
+                  stops: [0.0, 1.0]),
             ),
-          ]),
-        ),
-      ),
+            child: Column(children: [
+              WindowTitleBarBox(
+                  child: Row(children: [
+                Expanded(child: MoveWindow()),
+                WindowButtons()
+              ])),
+            ])));
+  }
+}
+
+final buttonColors = WindowButtonColors(
+    iconNormal: Color(0xFF805306),
+    mouseOver: Color(0xFFF6A00C),
+    mouseDown: Color(0xFF805306),
+    iconMouseOver: Color(0xFF805306),
+    iconMouseDown: Color(0xFFFFD500));
+
+final closeButtonColors = WindowButtonColors(
+    mouseOver: Color(0xFFD32F2F),
+    mouseDown: Color(0xFFB71C1C),
+    iconNormal: Color(0xFF805306),
+    iconMouseOver: Colors.white);
+
+class WindowButtons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        MinimizeWindowButton(colors: buttonColors),
+        MaximizeWindowButton(colors: buttonColors),
+        CloseWindowButton(colors: closeButtonColors),
+      ],
     );
   }
 }

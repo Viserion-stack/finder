@@ -1,3 +1,4 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:giraffe/providers/items.dart';
 import 'package:giraffe/screens/home_screen.dart';
@@ -7,6 +8,14 @@ import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
+  doWhenWindowReady((){
+final win = appWindow;
+final initialSize = Size(800,650);
+win.minSize = initialSize;
+win.alignment = Alignment.center;
+win.title = "AAAAAA";
+win.show();
+  });
 }
 
 class MyApp extends StatelessWidget {
@@ -25,6 +34,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           textTheme: GoogleFonts.quicksandTextTheme(Theme.of(context).textTheme),
         ),
+        debugShowCheckedModeBanner: false,
         home: HomeScreen(),
         routes: {
           HomeScreen.routeName: (ctx) => HomeScreen(),
