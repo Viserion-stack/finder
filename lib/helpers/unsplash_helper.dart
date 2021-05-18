@@ -1,11 +1,13 @@
-List<String> setlistItemsToListView(int value) {
-  List<String> listItemsToListView = [];
+import 'package:giraffe/helpers/model.dart';
+
+List<NotificationSetting> setlistItemsToListView(int value) {
+  List<NotificationSetting> listItemsToListView = [];
   switch (value) {
     case 0:
       {
         listItemsToListView = [
-          'Grafitowe',
-          'Elektrografitowe',
+          NotificationSetting(title: 'Grafitowe'),
+          NotificationSetting(title: 'Elektrografitowe'),
         ];
       }
       break;
@@ -13,7 +15,7 @@ List<String> setlistItemsToListView(int value) {
     case 1:
       {
         listItemsToListView = [
-          'Grafitowe',
+          NotificationSetting(title: 'Grafitowe'),
         ];
       }
       break;
@@ -21,7 +23,7 @@ List<String> setlistItemsToListView(int value) {
     case 2:
       {
         listItemsToListView = [
-          'Grafitowe',
+          NotificationSetting(title: 'Grafitowe'),
         ];
       }
       break;
@@ -29,39 +31,39 @@ List<String> setlistItemsToListView(int value) {
     case 3:
       {
         listItemsToListView = [
-          'Grafitowe',
-          'Elektrografitowe',
-          'Elektrografitowe miękkie',
-          'Naturanle grafitowe',
+          NotificationSetting(title: 'Grafitowe'),
+          NotificationSetting(title: 'Elektrografitowe'),
+          NotificationSetting(title: 'Elektrografitowe miękkie'),
+          NotificationSetting(title: 'Naturanle grafitowe'),
         ];
       }
       break;
     case 4:
       {
         listItemsToListView = [
-          'Grafitowe',
-          'Elektrografitowe',
+          NotificationSetting(title: 'Grafitowe'),
+          NotificationSetting(title: 'Elektrografitowe'),
         ];
       }
       break;
     case 5:
       {
         listItemsToListView = [
-          'Grafitowe',
+          NotificationSetting(title: 'Grafitowe'),
         ];
       }
       break;
     case 6:
       {
         listItemsToListView = [
-          'Grafitowe',
+          NotificationSetting(title: 'Grafitowe'),
         ];
       }
       break;
     case 7:
       {
         listItemsToListView = [
-          'Grafitowe',
+          NotificationSetting(title: 'Grafitowe'),
         ];
       }
       break;
@@ -69,12 +71,11 @@ List<String> setlistItemsToListView(int value) {
     default:
       {
         listItemsToListView = [
-          'Grafitowe',
-          'Elektrografitowe',
+          NotificationSetting(title: 'Grafitowe'),
+          NotificationSetting(title: 'Elektrografitowe'),
         ];
       }
       break;
   }
   return listItemsToListView;
 }
-

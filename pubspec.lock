@@ -8,6 +8,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.5.0"
+  auto_size_text:
+    dependency: transitive
+    description:
+      name: auto_size_text
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.0.0-nullsafety.0"
   bitsdojo_window:
     dependency: "direct main"
     description:
@@ -64,6 +71,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.2.0"
+  checkbox_grouped:
+    dependency: "direct main"
+    description:
+      name: checkbox_grouped
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.4.0"
   clock:
     dependency: transitive
     description:

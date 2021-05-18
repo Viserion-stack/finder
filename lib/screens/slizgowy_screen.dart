@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:giraffe/helpers/unsplash_helper.dart';
+import 'package:giraffe/helpers/model.dart';
 
 class SlizgowyScreen extends StatefulWidget {
   SlizgowyScreen({Key key}) : super(key: key);
@@ -20,11 +21,25 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
     'do 1000V',
     '1500 i więcej',
   ];
+  bool grafitowe = false;
+  bool elektrografitowe = false;
+  bool elektroGrafitoweMiekkie = false;
+  bool naturanleGrafitowe = false;
 
   List<String> listToListView = [];
 
   int selectedCategory;
   bool val = false;
+  final allowNotifications = NotificationSetting(title: 'Zaznacz Wszystko');
+  var notifications = [
+    NotificationSetting(title: ''),
+    NotificationSetting(title: ''),
+    NotificationSetting(title: ''),
+    NotificationSetting(title: ''),
+    NotificationSetting(title: ''),
+    NotificationSetting(title: ''),
+    NotificationSetting(title: ''),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -73,7 +88,7 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   valueChoose = value;
                   selectedCategory = listItem.indexOf(value);
 
-                  listToListView = setlistItemsToListView(selectedCategory);
+                  notifications = setlistItemsToListView(selectedCategory);
                 });
               },
               items: listItem.map((String value) {
@@ -93,26 +108,17 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
               padding: const EdgeInsets.all(30.0),
               child: Container(
                 width: MediaQuery.of(context).size.width / 3,
-                child: ListView.builder(
-                  itemCount: listToListView.length,
-                  itemBuilder: (context, index) {
-                    return Container(
-                      //width: MediaQuery.of(context).size.width / 2,
-                      child: Card(
-                        child: CheckboxListTile(
-                          title:
-                              Text('${index + 1}.  ${listToListView[index]}'),
-                          onChanged: (bool value) {
-                            setState(() {
-                              val = value;
-                            });
-                          },
-                          value: val,
-                        ),
+                child: notifications.length >= 6
+                    ? SizedBox(
+                        height: 1,
+                      )
+                    : ListView(
+                        children: [
+                          buildToggleCheckbox(allowNotifications),
+                          Divider(),
+                          ...notifications.map(buildSingleCheckbox).toList(),
+                        ],
                       ),
-                    );
-                  },
-                ),
               ),
             ),
           ),
@@ -120,4 +126,89 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
       ),
     );
   }
+
+  Widget buildToggleCheckbox(NotificationSetting notification) => buildCheckbox(
+      notification: notification,
+      onClicked: () {
+        final newValue = !notification.value;
+
+        setState(() {
+          allowNotifications.value = newValue;
+          notifications.forEach((notification) {
+            notification.value = newValue;
+          });
+        });
+      });
+
+  Widget buildSingleCheckbox(NotificationSetting notification) => buildCheckbox(
+        notification: notification,
+        onClicked: () {
+          setState(() {
+            switch (notification.title) {
+              case 'Grafitowe':
+                {
+                  grafitowe = !grafitowe;
+                  print(notification.title + ' =' + grafitowe.toString());
+                }
+                break;
+
+              case 'Elektrografitowe':
+                {
+                  elektrografitowe = !elektrografitowe;
+                  print(
+                      notification.title + ' =' + elektrografitowe.toString());
+                }
+                break;
+
+              case 'Elektrografitowe miękkie':
+                {
+                  elektroGrafitoweMiekkie = !elektroGrafitoweMiekkie;
+                  print(notification.title +
+                      ' =' +
+                      elektroGrafitoweMiekkie.toString());
+                }
+                break;
+              case 'Naturanle grafitowe':
+                {
+                  naturanleGrafitowe = !naturanleGrafitowe;
+                  print(notification.title +
+                      ' =' +
+                      naturanleGrafitowe.toString());
+                }
+                break;
+
+              default:
+                {}
+                break;
+            }
+
+            final newValue = !notification.value;
+            notification.value = newValue;
+
+            if (!newValue) {
+              allowNotifications.value = false;
+            } else {
+              final allow =
+                  notifications.every((notification) => notification.value);
+              allowNotifications.value = allow;
+            }
+          });
+        },
+      );
+
+  Widget buildCheckbox({
+    @required NotificationSetting notification,
+    @required VoidCallback onClicked,
+  }) =>
+      ListTile(
+        onTap: onClicked,
+        leading: Checkbox(
+          value: notification.value,
+          onChanged: (value) => onClicked(),
+        ),
+        title: Text(
+          notification.title,
+          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+        ),
+      );
 }

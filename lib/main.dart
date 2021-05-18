@@ -2,7 +2,6 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:giraffe/providers/items.dart';
 import 'package:giraffe/screens/home_screen.dart';
-import 'package:giraffe/screens/item_detail_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
@@ -38,7 +37,7 @@ class MyApp extends StatelessWidget {
         home: HomeScreen(),
         routes: {
           HomeScreen.routeName: (ctx) => HomeScreen(),
-          ItemDetailScreen.routeName: (ctx) => ItemDetailScreen(),
+          //ItemDetailScreen.routeName: (ctx) => ItemDetailScreen(),
             //FavouriteScreen.routeName: (ctx) => FavouriteScreen(),
         }
         ,

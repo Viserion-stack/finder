@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:giraffe/providers/items.dart';
 import 'package:provider/provider.dart';
 import 'all_screen.dart';
-import 'favorite_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -15,7 +14,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   List<Map<String, Object>> _pages;
   int _selectedPageIndex = 0;
-  bool isFavoritePage=false;
+  bool isFavoritePage = false;
 
   @override
   void initState() {
@@ -25,7 +24,7 @@ class _HomeScreenState extends State<HomeScreen> {
         'title': 'Home',
       },
       {
-        'page': FavoriteScreen(),
+        'page': HomeWindow(),
         'title': 'Your Favorite',
       },
     ];
