@@ -17,7 +17,7 @@ List<NotificationSetting> setlistItemsToListView(int value) {
       {
         listItemsToListView = [
           NotificationSetting(
-              title: 'Miedziowo-grafitowe z średnią zawartością miedzi'),
+              title: 'Miedziowo-grafitowe ze średnią zawartością miedzi'),
         ];
       }
       break;
@@ -37,7 +37,7 @@ List<NotificationSetting> setlistItemsToListView(int value) {
           NotificationSetting(title: 'Grafitowe'),
           NotificationSetting(title: 'Naturalne grafitowe'),
           NotificationSetting(title: 'Elektrografitowe'),
-          NotificationSetting(title: 'Elektrografitowe miękkie'),
+          NotificationSetting(title: 'Elektrografitowane miękkie'),
         ];
       }
       break;
@@ -45,7 +45,7 @@ List<NotificationSetting> setlistItemsToListView(int value) {
       {
         listItemsToListView = [
           NotificationSetting(title: 'Węglowo-grafitowe średniej twardości'),
-          NotificationSetting(title: 'Elektrografitowe średniej twardości'),
+          NotificationSetting(title: 'Elektrografitowane średniej twardości'),
         ];
       }
       break;
@@ -59,14 +59,14 @@ List<NotificationSetting> setlistItemsToListView(int value) {
     case 6:
       {
         listItemsToListView = [
-          NotificationSetting(title: 'Elektrografitowe twarde'),
+          NotificationSetting(title: 'Elektrografitowane twarde'),
         ];
       }
       break;
     case 7:
       {
         listItemsToListView = [
-          NotificationSetting(title: 'Wysokooporowe twarde'),
+          NotificationSetting(title: 'Wysokooporowe (grafit)'),
         ];
       }
       break;

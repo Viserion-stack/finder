@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:giraffe/providers/items.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 import 'all_screen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -12,6 +14,48 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  _onAlertButtonsPressed() {
+    Alert(
+      style: AlertStyle(
+        //alertBorder: ,
+        overlayColor: Color(0xDBEEEEEE),
+        backgroundColor: Colors.white,
+        titleStyle: GoogleFonts.quicksand(
+          color: Colors.black,
+          fontSize: 17,
+          fontWeight: FontWeight.bold,
+        ),
+        descStyle: GoogleFonts.quicksand(
+          color: Colors.black,
+          fontSize: 13,
+        ),
+      ),
+      context: context,
+      type: AlertType.none,
+      title: 'Autor: Mateusz Malicki',
+      desc: "Temat: temat \n Rok: rok",
+      buttons: [
+        DialogButton(
+          color: Color(0xFFF8BB06),
+            radius: BorderRadius.circular(27),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10.0, right: 10),
+              child: Center(
+                child: Text(
+                  "OK",
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                ),
+              ),
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            }
+            //color:  Color(0xFFF8BB06),
+            ),
+      ],
+    ).show();
+  }
+
   List<Map<String, Object>> _pages;
   int _selectedPageIndex = 0;
   bool isFavoritePage = false;
@@ -50,39 +94,10 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    Future.delayed(Duration.zero, () => _onAlertButtonsPressed());
     return Scaffold(
       //appBar: AppBar(title: Text('HomeScreen'),),
-      body: _pages[_selectedPageIndex]['page'],
-      bottomNavigationBar: BottomNavigationBar(
-        elevation: 0,
-        backgroundColor: isFavoritePage ? Color(0xFFFCC443) : Colors.teal,
-        currentIndex: _selectedPageIndex,
-        showSelectedLabels: true,
-        showUnselectedLabels: true,
-        unselectedFontSize: 12,
-        selectedItemColor: isFavoritePage ? Colors.teal : Color(0xFFFCC443),
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.home,
-              //color: Colors.blueGrey,
-              size: 25,
-            ),
-            // ignore: deprecated_member_use
-            title: Text('All'),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(
-              Icons.favorite,
-              //color: Colors.grey,
-              size: 25,
-            ),
-            // ignore: deprecated_member_use
-            title: Text('Favorite'),
-          ),
-        ],
-        onTap: _selectPage,
-      ),
+      body: HomeWindow(),
     );
   }
 }

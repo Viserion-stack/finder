@@ -4,6 +4,7 @@ import 'package:giraffe/screens/nierozlaczny_screen.dart';
 import 'package:giraffe/screens/rozlaczny_screen.dart';
 import 'package:giraffe/screens/slizgowy_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 class HomeWindow extends StatefulWidget {
   @override
@@ -11,8 +12,14 @@ class HomeWindow extends StatefulWidget {
 }
 
 class _HomeWindowState extends State<HomeWindow> {
+
+  
+
+  
+
   @override
   Widget build(BuildContext context) {
+    //_onAlertButtonsPressed();
     return Scaffold(
         body: WindowBorder(
             color: Colors.black,
@@ -26,8 +33,9 @@ const sidebarColor = Color(0xFFF6A00C);
 class LeftSide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    
     return SizedBox(
-        width: 200,
+        width: 300,
         child: Container(
             color: sidebarColor,
             child: Column(
@@ -38,7 +46,7 @@ class LeftSide extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        'Select things',
+                        'Przeznaczenie styku',
                         style: GoogleFonts.quicksand(
                           fontSize: 24,
                           color: Colors.white,
@@ -153,6 +161,7 @@ const backgroundStartColor = Color(0xFFFFD500);
 const backgroundEndColor = Color(0xFFF6A00C);
 
 class RightSide extends StatelessWidget {
+  
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -168,8 +177,14 @@ class RightSide extends StatelessWidget {
               WindowTitleBarBox(
                   child: Row(children: [
                 Expanded(child: MoveWindow()),
-                WindowButtons()
+                WindowButtons(),
+                
               ])),
+              Text('MATERIAŁY STYKOWE STOSOWANE W ELEKTROTECHNICE', style: GoogleFonts.quicksand(
+                fontSize: 35,
+                fontWeight: FontWeight.bold,
+                color:Colors.black87,
+              ),),
             ])));
   }
 }

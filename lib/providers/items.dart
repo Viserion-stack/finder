@@ -9,10 +9,12 @@ import '../helpers/db_helper.dart';
 class Items with ChangeNotifier {
   //List<Item> _items = [];
 
-  List<Item> _items = [
+  List<String> selectedItems= [];
+
+  List<Item> items = [
     Item(
       numerGrupy: '1a',
-      nazwaGrupySzczotek: 'Brązowo-Grafitowe',
+      nazwaGrupySzczotek: 'Brązowo-grafitowe',
       dopuszczalanaGestoscPradu: '20',
       dopuszczalanaMaksymalnapredkoscObrotowa: '20-25',
       napieciePrzejsciaNaPareSzczotek: '0.3-0.6',
@@ -216,8 +218,8 @@ class Items with ChangeNotifier {
   //   return [..._items];
   // }
 
-  Item findById(String id) {
-    //return _items.firstWhere((prod) => prod.id == id);
+  Item findById(String title) {
+    return items.firstWhere((item) => item.nazwaGrupySzczotek == title, orElse: () => null);
   }
 
   // void showAll() {

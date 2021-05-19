@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:giraffe/helpers/data_table_helper.dart';
 import 'package:giraffe/helpers/unsplash_helper.dart';
 import 'package:giraffe/helpers/model.dart';
+import 'package:giraffe/providers/item.dart';
+import 'package:giraffe/providers/items.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 
 class SlizgowyScreen extends StatefulWidget {
   SlizgowyScreen({Key key}) : super(key: key);
@@ -12,7 +15,9 @@ class SlizgowyScreen extends StatefulWidget {
 }
 
 class _SlizgowyScreenState extends State<SlizgowyScreen> {
+ 
   String valueChoose = '6V-10V';
+  List<Item> selectedItem= [];
   List<String> listItem = [
     '6V-10V',
     'do 40V',
@@ -55,6 +60,7 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
 
   @override
   Widget build(BuildContext context) {
+    
     return Scaffold(
       appBar: AppBar(
         title: Text('Styk Slizgowy'),
@@ -147,7 +153,7 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
           alignment: Alignment.topCenter,
           child: Padding(
             padding: const EdgeInsets.only(top: 15.0),
-            child: Tabelka(),
+            child: Tabelka(items: selectedItem,),
           ),
         ))
       ]),
@@ -168,15 +174,30 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
       });
 
   Widget buildSingleCheckbox(NotificationSetting notification) => buildCheckbox(
+    
         notification: notification,
         onClicked: () {
+          //var itemName = Provider.of<Items>(context, listen: false);
           setState(() {
+            
             switch (notification.title) {
               case 'Brązowo-grafitowe':
                 {
+                  // var itemName = Provider.of<Items>(context, listen: false).items;
                   brazowografitowe = !brazowografitowe;
                   print(
                       notification.title + ' =' + brazowografitowe.toString());
+                   Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(brazowografitowe){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!brazowografitowe){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
                 }
                 break;
 
@@ -187,16 +208,38 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       miedziowoGrafitoweZduzaZawartosciaMiedzi.toString());
+                      Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(miedziowoGrafitoweZduzaZawartosciaMiedzi){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!miedziowoGrafitoweZduzaZawartosciaMiedzi){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
                 }
                 break;
 
-              case 'Miedziowo-grafitowe z średnią zawartością miedzi':
+              case 'Miedziowo-grafitowe ze średnią zawartością miedzi':
                 {
                   miedziowoGrafitoweZsredniaZawartosciaMiedzi =
                       !miedziowoGrafitoweZsredniaZawartosciaMiedzi;
                   print(notification.title +
                       ' =' +
                       miedziowoGrafitoweZsredniaZawartosciaMiedzi.toString());
+                       Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(miedziowoGrafitoweZsredniaZawartosciaMiedzi){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!miedziowoGrafitoweZsredniaZawartosciaMiedzi){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
                 }
                 break;
               case 'Miedziowo-grafitowe z małą zawartością miedzi':
@@ -206,6 +249,17 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       miedziowoGrafitoweZmalaZawartosciaMiedzi.toString());
+                  Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(miedziowoGrafitoweZmalaZawartosciaMiedzi){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!miedziowoGrafitoweZmalaZawartosciaMiedzi){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
                 }
                 break;
               case 'Węglowo-grafitowe średniej twardości':
@@ -215,6 +269,17 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       weglowoGrafitoweSredniejTwardosci.toString());
+                      Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(weglowoGrafitoweSredniejTwardosci){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!weglowoGrafitoweSredniejTwardosci){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
                 }
                 break;
               case 'Węglowo-grafitowe twarde':
@@ -223,26 +288,72 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       weglowoGrafitoweTwarde.toString());
+                  Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(weglowoGrafitoweTwarde){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!weglowoGrafitoweTwarde){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
                 }
                 break;
               case 'Grafitowe':
                 {
                   grafitowe = !grafitowe;
                   print(notification.title + ' =' + grafitowe.toString());
+                  Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(grafitowe){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!grafitowe){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
+
                 }
                 break;
-              case 'Naturanle grafitowe':
+              case 'Naturalne grafitowe':
                 {
                   naturanleGrafitowe = !naturanleGrafitowe;
                   print(notification.title +
                       ' =' +
                       naturanleGrafitowe.toString());
+                      Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(naturanleGrafitowe){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!naturanleGrafitowe){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
+
                 }
                 break;
-              case 'Wysokooporowe twarde':
+              case 'Wysokooporowe (grafit)':
                 {
                   wysokoOporowe = !wysokoOporowe;
                   print(notification.title + ' =' + wysokoOporowe.toString());
+                  Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(wysokoOporowe){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!wysokoOporowe){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
                 }
                 break;
               case 'Elektrografitowe':
@@ -250,31 +361,76 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   elektrografitowe = !elektrografitowe;
                   print(
                       notification.title + ' =' + elektrografitowe.toString());
+                      Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(elektrografitowe){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!elektrografitowe){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
                 }
                 break;
-              case 'Elektrografitowe miękkie':
+              case 'Elektrografitowane miękkie':
                 {
                   elektroGrafitowaneMiekkie = !elektroGrafitowaneMiekkie;
                   print(notification.title +
                       ' =' +
                       elektroGrafitowaneMiekkie.toString());
+                       Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(elektroGrafitowaneMiekkie){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!elektroGrafitowaneMiekkie){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
                 }
                 break;
-              case 'Elektrografitowe średniej twardości':
+              case 'Elektrografitowane średniej twardości':
                 {
                   elektroGrafitowaneSredniejTwardosci =
                       !elektroGrafitowaneSredniejTwardosci;
                   print(notification.title +
                       ' =' +
                       elektroGrafitowaneSredniejTwardosci.toString());
+                      Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(elektroGrafitowaneSredniejTwardosci){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!elektroGrafitowaneSredniejTwardosci){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
+                      
                 }
                 break;
-              case 'Elektrografitowe twarde':
+              case 'Elektrografitowane twarde':
                 {
                   elektroGrafitowaneTwarde = !elektroGrafitowaneTwarde;
                   print(notification.title +
                       ' =' +
                       elektroGrafitowaneTwarde.toString());
+                    Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
+                  if(elektroGrafitowaneTwarde){
+                    selectedItem.add(title);
+                    print(selectedItem);
+                  }
+                  if(!elektroGrafitowaneTwarde){
+                    
+                    selectedItem.remove(title);
+                    print(selectedItem);
+                  
+                  }
                 }
                 break;
 
