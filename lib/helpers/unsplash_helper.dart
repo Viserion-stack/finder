@@ -6,8 +6,9 @@ List<NotificationSetting> setlistItemsToListView(int value) {
     case 0:
       {
         listItemsToListView = [
-          NotificationSetting(title: 'Grafitowe'),
-          NotificationSetting(title: 'Elektrografitowe'),
+          NotificationSetting(title: 'Brązowo-grafitowe'),
+          NotificationSetting(
+              title: 'Miedziowo-grafitowe z dużą zawartością miedzi'),
         ];
       }
       break;
@@ -15,7 +16,8 @@ List<NotificationSetting> setlistItemsToListView(int value) {
     case 1:
       {
         listItemsToListView = [
-          NotificationSetting(title: 'Grafitowe'),
+          NotificationSetting(
+              title: 'Miedziowo-grafitowe z średnią zawartością miedzi'),
         ];
       }
       break;
@@ -23,7 +25,8 @@ List<NotificationSetting> setlistItemsToListView(int value) {
     case 2:
       {
         listItemsToListView = [
-          NotificationSetting(title: 'Grafitowe'),
+          NotificationSetting(
+              title: 'Miedziowo-grafitowe z małą zawartością miedzi'),
         ];
       }
       break;
@@ -32,38 +35,38 @@ List<NotificationSetting> setlistItemsToListView(int value) {
       {
         listItemsToListView = [
           NotificationSetting(title: 'Grafitowe'),
+          NotificationSetting(title: 'Naturalne grafitowe'),
           NotificationSetting(title: 'Elektrografitowe'),
           NotificationSetting(title: 'Elektrografitowe miękkie'),
-          NotificationSetting(title: 'Naturanle grafitowe'),
         ];
       }
       break;
     case 4:
       {
         listItemsToListView = [
-          NotificationSetting(title: 'Grafitowe'),
-          NotificationSetting(title: 'Elektrografitowe'),
+          NotificationSetting(title: 'Węglowo-grafitowe średniej twardości'),
+          NotificationSetting(title: 'Elektrografitowe średniej twardości'),
         ];
       }
       break;
     case 5:
       {
         listItemsToListView = [
-          NotificationSetting(title: 'Grafitowe'),
+          NotificationSetting(title: 'Węglowo-grafitowe twarde'),
         ];
       }
       break;
     case 6:
       {
         listItemsToListView = [
-          NotificationSetting(title: 'Grafitowe'),
+          NotificationSetting(title: 'Elektrografitowe twarde'),
         ];
       }
       break;
     case 7:
       {
         listItemsToListView = [
-          NotificationSetting(title: 'Grafitowe'),
+          NotificationSetting(title: 'Wysokooporowe twarde'),
         ];
       }
       break;

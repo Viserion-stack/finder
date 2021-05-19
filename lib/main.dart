@@ -9,7 +9,7 @@ void main() {
   runApp(MyApp());
   doWhenWindowReady((){
 final win = appWindow;
-final initialSize = Size(800,650);
+final initialSize = Size(800,800);
 win.minSize = initialSize;
 win.alignment = Alignment.center;
 win.title = "AAAAAA";

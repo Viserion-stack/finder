@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:giraffe/helpers/data_table_helper.dart';
 import 'package:giraffe/helpers/unsplash_helper.dart';
 import 'package:giraffe/helpers/model.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -22,10 +23,20 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
     'do 1000V',
     '1500 i więcej',
   ];
+  bool brazowografitowe = false;
+  bool miedziowoGrafitoweZduzaZawartosciaMiedzi = false;
+  bool miedziowoGrafitoweZsredniaZawartosciaMiedzi = false;
+  bool miedziowoGrafitoweZmalaZawartosciaMiedzi = false;
+  bool srebrnoGrafitowe = false;
+  bool weglowoGrafitoweSredniejTwardosci = false;
+  bool weglowoGrafitoweTwarde = false;
   bool grafitowe = false;
-  bool elektrografitowe = false;
-  bool elektroGrafitoweMiekkie = false;
+  bool wysokoOporowe = false;
   bool naturanleGrafitowe = false;
+  bool elektrografitowe = false;
+  bool elektroGrafitowaneMiekkie = false;
+  bool elektroGrafitowaneSredniejTwardosci = false;
+  bool elektroGrafitowaneTwarde = false;
 
   List<String> listToListView = [];
 
@@ -109,7 +120,7 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
               SizedBox(height: 50),
               Expanded(
                 child: Padding(
-                  padding: const EdgeInsets.all(30.0),
+                  padding: const EdgeInsets.all(20.0),
                   child: Container(
                     width: MediaQuery.of(context).size.width / 3,
                     child: notifications.length >= 6
@@ -131,192 +142,12 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
             ],
           ),
         ),
-       
         Expanded(
             child: Align(
           alignment: Alignment.topCenter,
           child: Padding(
             padding: const EdgeInsets.only(top: 15.0),
-            child: DataTable(
-                showBottomBorder: true,
-                dividerThickness: 1,
-                columnSpacing: 5,
-                columns: const <DataColumn>[
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Numer grupy',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 6,
-                      ),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Nazwa grupy szczotek',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 8,
-                      ),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Dopuszczalna gęstość prądu',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 8,
-                      ),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Dopuszczalana Maksymalna predkosc Obrotowa',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 8,
-                      ),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Napiecie Przejscia Na Pare Szczotek',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 8,
-                      ),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Napiecie Maszyny Dla Ktorej Szczotki Sa Przeznaczone',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 8,
-                      ),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Rezystywnosc',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 8,
-                      ),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Twardosc',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 8,
-                      ),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Wspolczynnik Tarcia Max',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 8,
-                      ),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Zuzycie po 50h Pracy',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 8,
-                      ),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Ciezar Objetosciowy',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 8,
-                      ),
-                    ),
-                  ),
-                  DataColumn(
-                    label: Flexible(
-                      child: Text(
-                        'Zawartosc Popiolu',
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 12,
-                        ),
-                        overflow: TextOverflow.ellipsis,
-                        maxLines: 8,
-                      ),
-                    ),
-                  ),
-                ],
-                rows: <DataRow>[
-                  DataRow(
-                    cells: <DataCell>[
-                      DataCell(Center(child: Text('Ia'))),
-                      DataCell(Center(child: Text('Brązowo-Grafitowe'))),
-                      DataCell(Center(child: Text('20'))),
-                      DataCell(Center(child: Text('20-25'))),
-                      DataCell(Center(child: Text('0.3-0.6'))),
-                      DataCell(Center(child: Text('6-10'))),
-                      DataCell(Center(child: Text('0.08'))),
-                      DataCell(Center(child: Text('0.50'))),
-                      DataCell(Center(child: Text('od 10 do 0.15'))),
-                      DataCell(Center(child: Text('do 0.30'))),
-                      DataCell(Center(child: Text('4.8-6.0'))),
-                      DataCell(Center(child: Text('do 1'))),
-                    ],
-                  ),
-                ]),
+            child: Tabelka(),
           ),
         ))
       ]),
@@ -341,27 +172,63 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
         onClicked: () {
           setState(() {
             switch (notification.title) {
+              case 'Brązowo-grafitowe':
+                {
+                  brazowografitowe = !brazowografitowe;
+                  print(
+                      notification.title + ' =' + brazowografitowe.toString());
+                }
+                break;
+
+              case 'Miedziowo-grafitowe z dużą zawartością miedzi':
+                {
+                  miedziowoGrafitoweZduzaZawartosciaMiedzi =
+                      !miedziowoGrafitoweZduzaZawartosciaMiedzi;
+                  print(notification.title +
+                      ' =' +
+                      miedziowoGrafitoweZduzaZawartosciaMiedzi.toString());
+                }
+                break;
+
+              case 'Miedziowo-grafitowe z średnią zawartością miedzi':
+                {
+                  miedziowoGrafitoweZsredniaZawartosciaMiedzi =
+                      !miedziowoGrafitoweZsredniaZawartosciaMiedzi;
+                  print(notification.title +
+                      ' =' +
+                      miedziowoGrafitoweZsredniaZawartosciaMiedzi.toString());
+                }
+                break;
+              case 'Miedziowo-grafitowe z małą zawartością miedzi':
+                {
+                  miedziowoGrafitoweZmalaZawartosciaMiedzi =
+                      !miedziowoGrafitoweZmalaZawartosciaMiedzi;
+                  print(notification.title +
+                      ' =' +
+                      miedziowoGrafitoweZmalaZawartosciaMiedzi.toString());
+                }
+                break;
+              case 'Węglowo-grafitowe średniej twardości':
+                {
+                  weglowoGrafitoweSredniejTwardosci =
+                      !weglowoGrafitoweSredniejTwardosci;
+                  print(notification.title +
+                      ' =' +
+                      weglowoGrafitoweSredniejTwardosci.toString());
+                }
+                break;
+              case 'Węglowo-grafitowe twarde':
+                {
+                  weglowoGrafitoweTwarde = !weglowoGrafitoweTwarde;
+                  print(notification.title +
+                      ' =' +
+                      weglowoGrafitoweTwarde.toString());
+                }
+                break;
               case 'Grafitowe':
                 {
                   grafitowe = !grafitowe;
                   print(notification.title + ' =' + grafitowe.toString());
-                }
-                break;
-
-              case 'Elektrografitowe':
-                {
-                  elektrografitowe = !elektrografitowe;
-                  print(
-                      notification.title + ' =' + elektrografitowe.toString());
-                }
-                break;
-
-              case 'Elektrografitowe miękkie':
-                {
-                  elektroGrafitoweMiekkie = !elektroGrafitoweMiekkie;
-                  print(notification.title +
-                      ' =' +
-                      elektroGrafitoweMiekkie.toString());
                 }
                 break;
               case 'Naturanle grafitowe':
@@ -370,6 +237,44 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       naturanleGrafitowe.toString());
+                }
+                break;
+              case 'Wysokooporowe twarde':
+                {
+                  wysokoOporowe = !wysokoOporowe;
+                  print(notification.title + ' =' + wysokoOporowe.toString());
+                }
+                break;
+              case 'Elektrografitowe':
+                {
+                  elektrografitowe = !elektrografitowe;
+                  print(
+                      notification.title + ' =' + elektrografitowe.toString());
+                }
+                break;
+              case 'Elektrografitowe miękkie':
+                {
+                  elektroGrafitowaneMiekkie = !elektroGrafitowaneMiekkie;
+                  print(notification.title +
+                      ' =' +
+                      elektroGrafitowaneMiekkie.toString());
+                }
+                break;
+              case 'Elektrografitowe średniej twardości':
+                {
+                  elektroGrafitowaneSredniejTwardosci =
+                      !elektroGrafitowaneSredniejTwardosci;
+                  print(notification.title +
+                      ' =' +
+                      elektroGrafitowaneSredniejTwardosci.toString());
+                }
+                break;
+              case 'Elektrografitowe twarde':
+                {
+                  elektroGrafitowaneTwarde = !elektroGrafitowaneTwarde;
+                  print(notification.title +
+                      ' =' +
+                      elektroGrafitowaneTwarde.toString());
                 }
                 break;
 
