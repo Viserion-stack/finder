@@ -9,7 +9,7 @@ import '../helpers/db_helper.dart';
 class Items with ChangeNotifier {
   //List<Item> _items = [];
 
-  List<String> selectedItems= [];
+  List<String> selectedItems = [];
 
   List<Item> items = [
     Item(
@@ -209,6 +209,100 @@ class Items with ChangeNotifier {
       zawartoscPopiolu: 'do 0.5',
     ),
   ];
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  List<ItemKomutator> itemsKomutator = [
+    ItemKomutator(
+      material: 'Miedź elektrolityczna',
+      proporcje: 'Cu 99.9',
+      iacs: '100',
+      mpa: '250',
+      hb: '80',
+      ts: '155-170',
+      tpo: '160',
+    ),
+    ItemKomutator(
+      material: 'Miedź ceramiczna',
+      proporcje: 'Cu 99.9',
+      iacs: '85',
+      mpa: '250',
+      hb: '70',
+      ts: '250',
+      tpo: '180',
+    ),
+    ItemKomutator(
+      material: 'Srebro - miedź',
+      proporcje: 'Ag 0.07 - 0.14 reszta Cu',
+      iacs: '96',
+      mpa: '250',
+      hb: '85',
+      ts: '240',
+      tpo: '220',
+    ),
+    ItemKomutator(
+      material: 'Brąz magnezowy',
+      proporcje: 'Mg 0.1 - 0.35 reszta Cu',
+      iacs: '80',
+      mpa: '270',
+      hb: '90',
+      ts: '260',
+      tpo: '230',
+    ),
+    ItemKomutator(
+      material: 'Brązowo kadamowy',
+      proporcje: 'Cd 0.9 - 1.2 reszta Cu',
+      iacs: '80',
+      mpa: '270',
+      hb: '95',
+      ts: '250',
+      tpo: '230',
+    ),
+    ItemKomutator(
+      material: 'Brąz chromowy',
+      proporcje: 'Cr 0.4 - 1.0',
+      iacs: '75',
+      mpa: '380',
+      hb: '110',
+      ts: '325',
+      tpo: '270',
+    ),
+    ItemKomutator(
+      material: 'Brąz Cr - Zr',
+      proporcje: 'Cr 0.2-0.4, Zr 0.15-0.35 reszta Cu ',
+      iacs: '80',
+      mpa: '450',
+      hb: '120',
+      ts: '450',
+      tpo: '350',
+    ),
+    ItemKomutator(
+      material: 'Brąz cyrkonowy',
+      proporcje: 'Zr 0.2 - 0.4 reszta Cu',
+      iacs: '85',
+      mpa: '350',
+      hb: '100',
+      ts: '350',
+      tpo: '250',
+    ),
+    ItemKomutator(
+      material: 'Stal nierdzewna ',
+      proporcje: 'Cr 17-19, Ni 8-9.5, Mn 10-20, Ti 0.5-0.7 reszta Fe',
+      iacs: '2.6',
+      mpa: '550',
+      hb: '160',
+      ts: '-',
+      tpo: '600',
+    ),
+    ItemKomutator(
+      material: 'Brąz cynowo - cynkowy',
+      proporcje: 'Sn 3-5, Zn 3-5, Pb 1.5-3.5, reszta Cu',
+      iacs: '15',
+      mpa: '550',
+      hb: '160',
+      ts: '400',
+      tpo: '350',
+    ),
+  ];
   // var _showFavoritesOnly = false;
 
   // List<Item> get items {
@@ -219,7 +313,8 @@ class Items with ChangeNotifier {
   // }
 
   Item findById(String title) {
-    return items.firstWhere((item) => item.nazwaGrupySzczotek == title, orElse: () => null);
+    return items.firstWhere((item) => item.nazwaGrupySzczotek == title,
+        orElse: () => null);
   }
 
   // void showAll() {

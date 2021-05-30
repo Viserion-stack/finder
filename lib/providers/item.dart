@@ -32,3 +32,23 @@ class Item with ChangeNotifier {
     @required this.zawartoscPopiolu,
   });
 }
+
+class ItemKomutator with ChangeNotifier {
+  final String material;
+  final String proporcje;
+  final String iacs;
+  final String mpa;
+  final String hb;
+  final String ts;
+  final String tpo;
+
+  ItemKomutator({
+    @required this.material,
+    @required this.proporcje,
+    @required this.iacs,
+    @required this.mpa,
+    @required this.hb,
+    @required this.ts,
+    @required this.tpo,
+  });
+}

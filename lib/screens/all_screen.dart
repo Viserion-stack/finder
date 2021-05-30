@@ -3,6 +3,7 @@ import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:giraffe/screens/nierozlaczny_screen.dart';
 import 'package:giraffe/screens/rozlaczny_screen.dart';
 import 'package:giraffe/screens/slizgowy_screen.dart';
+import 'package:giraffe/screens/styk_slizgowy_general.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
@@ -12,11 +13,6 @@ class HomeWindow extends StatefulWidget {
 }
 
 class _HomeWindowState extends State<HomeWindow> {
-
-  
-
-  
-
   @override
   Widget build(BuildContext context) {
     //_onAlertButtonsPressed();
@@ -33,7 +29,6 @@ const sidebarColor = Color(0xFFF6A00C);
 class LeftSide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    
     return SizedBox(
         width: 300,
         child: Container(
@@ -61,7 +56,8 @@ class LeftSide extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => SlizgowyScreen()));
+                                  builder: (context) =>
+                                      SlizgowyGeneralScreen()));
                         },
                         child: Container(
                           width: 180,
@@ -161,7 +157,6 @@ const backgroundStartColor = Color(0xFFFFD500);
 const backgroundEndColor = Color(0xFFF6A00C);
 
 class RightSide extends StatelessWidget {
-  
   @override
   Widget build(BuildContext context) {
     return Expanded(
@@ -178,13 +173,15 @@ class RightSide extends StatelessWidget {
                   child: Row(children: [
                 Expanded(child: MoveWindow()),
                 WindowButtons(),
-                
               ])),
-              Text('MATERIAŁY STYKOWE STOSOWANE W ELEKTROTECHNICE', style: GoogleFonts.quicksand(
-                fontSize: 35,
-                fontWeight: FontWeight.bold,
-                color:Colors.black87,
-              ),),
+              Text(
+                'MATERIAŁY STYKOWE STOSOWANE W ELEKTROTECHNICE',
+                style: GoogleFonts.quicksand(
+                  fontSize: 35,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.black87,
+                ),
+              ),
             ])));
   }
 }
