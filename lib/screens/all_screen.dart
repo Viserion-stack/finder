@@ -17,10 +17,12 @@ class _HomeWindowState extends State<HomeWindow> {
   Widget build(BuildContext context) {
     //_onAlertButtonsPressed();
     return Scaffold(
-        body: WindowBorder(
-            color: Colors.black,
-            width: 1,
-            child: Row(children: [LeftSide(), RightSide()])));
+      body: WindowBorder(
+        color: Colors.black,
+        width: 1,
+        child: Row(children: [LeftSide(), RightSide()]),
+      ),
+    );
   }
 }
 
