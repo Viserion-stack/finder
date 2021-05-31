@@ -4,7 +4,6 @@ import 'package:giraffe/helpers/unsplash_helper.dart';
 import 'package:giraffe/helpers/model.dart';
 import 'package:giraffe/providers/item.dart';
 import 'package:giraffe/providers/items.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
 
 class SlizgowyScreen extends StatefulWidget {

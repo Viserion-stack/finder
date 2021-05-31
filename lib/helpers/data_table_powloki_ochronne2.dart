@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:giraffe/providers/item.dart';
 
-class Tabelka extends StatelessWidget {
-  final List<Item> items;
-  const Tabelka({Key key, this.items})
+class TabelkaPowlokiOchronne2 extends StatelessWidget {
+  final List<ItemPowlokiOchronne2> itemsPowlokiOchronne2;
+  const TabelkaPowlokiOchronne2({Key key, this.itemsPowlokiOchronne2})
       : super(
           key: key,
         );
@@ -21,7 +21,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Numer grupy',
+                  'Materiał',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -37,7 +37,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Nazwa grupy szczotek',
+                  '            Gęstość (g/cm3)',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -53,7 +53,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Dopuszczalna gęstość prądu',
+                  'ρ(10-8 Ωm)',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -69,7 +69,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Dopuszczalana Maksymalna predkosc Obrotowa',
+                  'λ (W/m°C)',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -85,7 +85,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Napiecie Przejscia Na Pare Szczotek',
+                  'Hb',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -101,7 +101,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Napiecie Maszyny Dla Ktorej Szczotki Sa Przeznaczone',
+                  'α (°C-1)',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -117,7 +117,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Rezystywnosc',
+                  'E(105 MPA)',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -133,7 +133,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Twardosc',
+                  'Temp. Mięknienia',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -149,55 +149,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Wspolczynnik Tarcia Max',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
-                ),
-              ),
-            ),
-          ),
-          DataColumn(
-            label: Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'Zuzycie po 50h Pracy',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
-                ),
-              ),
-            ),
-          ),
-          DataColumn(
-            label: Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'Ciezar Objetosciowy',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
-                ),
-              ),
-            ),
-          ),
-          DataColumn(
-            label: Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'Zawartosc Popiolu',
+                  'Temp. Topnienia',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -209,70 +161,56 @@ class Tabelka extends StatelessWidget {
             ),
           ),
         ],
-        rows: items.map((item) {
+        rows: itemsPowlokiOchronne2.map((itemsPowlokiOchronne2) {
           return DataRow(
             cells: <DataCell>[
               DataCell(Center(
                   child: Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Text(item.numerGrupy),
+                child: Text(itemsPowlokiOchronne2.material),
               ))),
               DataCell(Center(
                   child: Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Text(item.nazwaGrupySzczotek),
+                child: Text(itemsPowlokiOchronne2.gestosc),
               ))),
               DataCell(Center(
                   child: Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Text(item.dopuszczalanaGestoscPradu),
+                child: Text(itemsPowlokiOchronne2.p),
               ))),
               DataCell(Center(
                   child: Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Text(item.dopuszczalanaMaksymalnapredkoscObrotowa),
+                child: Text(itemsPowlokiOchronne2.lambda),
               ))),
               DataCell(Center(
                   child: Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Text(item.napieciePrzejsciaNaPareSzczotek),
+                child: Text(itemsPowlokiOchronne2.hb),
               ))),
               DataCell(Center(
                   child: Padding(
                 padding: const EdgeInsets.all(5.0),
-                child:
-                    Text(item.napiecieMaszynyDlaKtorejSzczotkiSaPrzeznaczone),
+                child: Text(itemsPowlokiOchronne2.alfa),
               ))),
               DataCell(Center(
                   child: Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Text(item.rezystywnosc),
+                child: Text(itemsPowlokiOchronne2.e),
               ))),
               DataCell(Center(
                   child: Padding(
                 padding: const EdgeInsets.all(5.0),
-                child: Text(item.twardosc),
+                child: Text(itemsPowlokiOchronne2.tempMieknienia),
               ))),
-              DataCell(Center(
-                  child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Text(item.wspolczynnikTarciaMax),
-              ))),
-              DataCell(Center(
-                  child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Text(item.zuzyciepo50hPracy),
-              ))),
-              DataCell(Center(
-                  child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Text(item.ciezarObjetosciowy),
-              ))),
-              DataCell(Center(
-                  child: Padding(
-                padding: const EdgeInsets.all(5.0),
-                child: Text(item.zawartoscPopiolu),
-              ))),
+              DataCell(
+                Center(
+                    child: Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: Text(itemsPowlokiOchronne2.temptopnienia),
+                )),
+              )
             ],
           );
         }).toList());

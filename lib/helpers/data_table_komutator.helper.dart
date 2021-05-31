@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:giraffe/providers/item.dart';
-import 'package:giraffe/providers/items.dart';
-import 'package:provider/provider.dart';
 
 class TabelkaKomutator extends StatelessWidget {
   final List<ItemKomutator> itemskomutator;

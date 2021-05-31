@@ -1,4 +1,3 @@
-import 'package:meta/meta.dart';
 
 class NotificationSetting {
   String title;

@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:giraffe/screens/nierozlaczny_screen.dart';
 import 'package:giraffe/screens/rozlaczny_screen.dart';
-import 'package:giraffe/screens/slizgowy_screen.dart';
 import 'package:giraffe/screens/styk_slizgowy_general.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rflutter_alert/rflutter_alert.dart';
 
 class HomeWindow extends StatefulWidget {
   @override

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:giraffe/providers/items.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:provider/provider.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 import 'all_screen.dart';
 
@@ -56,23 +54,11 @@ class _HomeScreenState extends State<HomeScreen> {
     ).show();
   }
 
-  List<Map<String, Object>> _pages;
-  int _selectedPageIndex = 0;
   bool isFavoritePage = false;
 
   @override
   void initState() {
-    _pages = [
-      {
-        'page': HomeWindow(),
-        'title': 'Home',
-      },
-      {
-        'page': HomeWindow(),
-        'title': 'Your Favorite',
-      },
-    ];
-
+  
     // Future.delayed(Duration.zero).then((_) {
     //   Provider.of<Items>(context, listen: false).fetchAndSetRandomPhotos();
     //   //print('Get random 20 photos at start');
@@ -81,16 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
   }
 
-  void _selectPage(int index) {
-    setState(() {
-      _selectedPageIndex = index;
-      if (index == 0) {
-        isFavoritePage = false;
-      } else {
-        isFavoritePage = true;
-      }
-    });
-  }
 
   @override
   Widget build(BuildContext context) {

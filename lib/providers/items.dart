@@ -1,10 +1,6 @@
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 //import 'package:giraffe/helpers/unsplash_helper.dart';
 import 'package:giraffe/providers/item.dart';
-import 'package:http/http.dart' as http;
-import '../helpers/db_helper.dart';
 
 class Items with ChangeNotifier {
   //List<Item> _items = [];
@@ -303,14 +299,97 @@ class Items with ChangeNotifier {
       tpo: '350',
     ),
   ];
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+  List<ItemPowlokiOchronne> itemsPowlokiOchronne = [
+    ItemPowlokiOchronne(
+      lp: '1',
+      powlokiOchronne: 'Al (powłoka niklowa) - Cu (powłoka niklowa)',
+      wskaznikOceny: '1 - Wynik Najlepszy',
+    ),
+    ItemPowlokiOchronne(
+      lp: '2',
+      powlokiOchronne: 'Al (powłoka miedziana)',
+      wskaznikOceny: '0.7',
+    ),
+    ItemPowlokiOchronne(
+      lp: '3',
+      powlokiOchronne: 'Al-Cu (powłoka niklowa)',
+      wskaznikOceny: '0.54',
+    ),
+    ItemPowlokiOchronne(
+      lp: '4',
+      powlokiOchronne: 'Al-Cu (powłoka srebrna',
+      wskaznikOceny: '0.35',
+    ),
+    ItemPowlokiOchronne(
+      lp: '5',
+      powlokiOchronne: 'Al-Cu (brak powłoki)',
+      wskaznikOceny: '0.29',
+    ),
+    ItemPowlokiOchronne(
+      lp: '6',
+      powlokiOchronne: 'Al-Cu (powłoka cynowa)',
+      wskaznikOceny: '0.26',
+    ),
+  ];
+  /////////////////////////////////////////////////////////////////////////////////////
+  ///I
+  List<ItemPowlokiOchronne2> itemsPowlokiOchronne2 = [
+    ItemPowlokiOchronne2(
+      material: 'Nikiel',
+      gestosc: '8.8',
+      p: '8',
+      lambda: '70',
+      hb: '70',
+      alfa: '0.005',
+      e: '2.1',
+      tempMieknienia: '520',
+      temptopnienia: '1452',
+    ),
+    ItemPowlokiOchronne2(
+      material: 'Miedź',
+      gestosc: '8.9',
+      p: '1.75',
+      lambda: '380',
+      hb: '35',
+      alfa: '0.004',
+      e: '2.1',
+      tempMieknienia: '190',
+      temptopnienia: '1083',
+    ),
+    ItemPowlokiOchronne2(
+      material: 'Cyna',
+      gestosc: '7.3',
+      p: '12',
+      lambda: '64',
+      hb: '4',
+      alfa: '0.0045',
+      e: '0.4',
+      tempMieknienia: '100',
+      temptopnienia: '232',
+    ),
+    ItemPowlokiOchronne2(
+      material: 'Srebro',
+      gestosc: '10.5',
+      p: '1.65',
+      lambda: '418',
+      hb: '25',
+      alfa: '0.004',
+      e: '0.75',
+      tempMieknienia: '180',
+      temptopnienia: '960',
+    ),
+  ];
+
   // var _showFavoritesOnly = false;
 
-  // List<Item> get items {
-  //   // if (_showFavoritesOnly) {
-  //   //   return _items.where((prodItem) => prodItem.isFavorite).toList();
-  //   // }
-  //   return [..._items];
-  // }
+  ItemPowlokiOchronne2 findByIdItemsPowlokiOchronneByName(String materialName){
+    
+      return itemsPowlokiOchronne2.firstWhere((item) => item.material == materialName);
+  
+    
+  }
 
   Item findById(String title) {
     return items.firstWhere((item) => item.nazwaGrupySzczotek == title,

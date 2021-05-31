@@ -110,7 +110,7 @@ class _PierscienieKomutatoryScreenState
             padding: const EdgeInsets.only(top: 15.0),
             child: TabelkaKomutator(itemskomutator: selectedtemp),
           ),
-        ))
+        ),)
       ]),
     );
   }

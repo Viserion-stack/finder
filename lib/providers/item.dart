@@ -1,7 +1,4 @@
-import 'dart:convert';
-
 import 'package:flutter/foundation.dart';
-import 'package:http/http.dart' as http;
 
 class Item with ChangeNotifier {
   final String numerGrupy;
@@ -50,5 +47,41 @@ class ItemKomutator with ChangeNotifier {
     @required this.hb,
     @required this.ts,
     @required this.tpo,
+  });
+}
+
+class ItemPowlokiOchronne with ChangeNotifier {
+  final String lp;
+  final String powlokiOchronne;
+  final String wskaznikOceny;
+
+  ItemPowlokiOchronne({
+    @required this.lp,
+    @required this.powlokiOchronne,
+    @required this.wskaznikOceny,
+  });
+}
+
+class ItemPowlokiOchronne2 with ChangeNotifier {
+  final String material;
+  final String gestosc;
+  final String p;
+  final String lambda;
+  final String hb;
+  final String alfa;
+  final String e;
+  final String tempMieknienia;
+  final String temptopnienia;
+
+  ItemPowlokiOchronne2({
+    @required this.material,
+    @required this.gestosc,
+    @required this.p,
+    @required this.lambda,
+    @required this.hb,
+    @required this.alfa,
+    @required this.e,
+    @required this.tempMieknienia,
+    @required this.temptopnienia,
   });
 }
