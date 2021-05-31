@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:giraffe/helpers/data_table_helper.dart';
+import 'package:giraffe/helpers/save_alert.dart';
 import 'package:giraffe/helpers/unsplash_helper.dart';
 import 'package:giraffe/helpers/model.dart';
 import 'package:giraffe/providers/item.dart';
@@ -14,9 +15,8 @@ class SlizgowyScreen extends StatefulWidget {
 }
 
 class _SlizgowyScreenState extends State<SlizgowyScreen> {
- 
   String valueChoose = '6V-10V';
-  List<Item> selectedItem= [];
+  List<Item> selectedItem = [];
   List<String> listItem = [
     '6V-10V',
     'do 40V',
@@ -59,10 +59,35 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         title: Text('Styk Slizgowy'),
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+              onTap: (){
+                showAlertDialog(context, selectedItem);
+              },
+                          child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    'Zapisz to!',
+                    style: TextStyle(
+                      color: Colors.blue,
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
       body: Row(children: [
         Container(
@@ -152,7 +177,9 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
           alignment: Alignment.topCenter,
           child: Padding(
             padding: const EdgeInsets.only(top: 15.0),
-            child: Tabelka(items: selectedItem,),
+            child: Tabelka(
+              items: selectedItem,
+            ),
           ),
         ))
       ]),
@@ -173,12 +200,10 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
       });
 
   Widget buildSingleCheckbox(NotificationSetting notification) => buildCheckbox(
-    
         notification: notification,
         onClicked: () {
           //var itemName = Provider.of<Items>(context, listen: false);
           setState(() {
-            
             switch (notification.title) {
               case 'Brązowo-grafitowe':
                 {
@@ -186,16 +211,15 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   brazowografitowe = !brazowografitowe;
                   print(
                       notification.title + ' =' + brazowografitowe.toString());
-                   Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(brazowografitowe){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (brazowografitowe) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!brazowografitowe){
-                    
+                  if (!brazowografitowe) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
                 }
                 break;
@@ -207,16 +231,15 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       miedziowoGrafitoweZduzaZawartosciaMiedzi.toString());
-                      Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(miedziowoGrafitoweZduzaZawartosciaMiedzi){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (miedziowoGrafitoweZduzaZawartosciaMiedzi) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!miedziowoGrafitoweZduzaZawartosciaMiedzi){
-                    
+                  if (!miedziowoGrafitoweZduzaZawartosciaMiedzi) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
                 }
                 break;
@@ -228,16 +251,15 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       miedziowoGrafitoweZsredniaZawartosciaMiedzi.toString());
-                       Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(miedziowoGrafitoweZsredniaZawartosciaMiedzi){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (miedziowoGrafitoweZsredniaZawartosciaMiedzi) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!miedziowoGrafitoweZsredniaZawartosciaMiedzi){
-                    
+                  if (!miedziowoGrafitoweZsredniaZawartosciaMiedzi) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
                 }
                 break;
@@ -248,16 +270,15 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       miedziowoGrafitoweZmalaZawartosciaMiedzi.toString());
-                  Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(miedziowoGrafitoweZmalaZawartosciaMiedzi){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (miedziowoGrafitoweZmalaZawartosciaMiedzi) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!miedziowoGrafitoweZmalaZawartosciaMiedzi){
-                    
+                  if (!miedziowoGrafitoweZmalaZawartosciaMiedzi) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
                 }
                 break;
@@ -268,16 +289,15 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       weglowoGrafitoweSredniejTwardosci.toString());
-                      Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(weglowoGrafitoweSredniejTwardosci){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (weglowoGrafitoweSredniejTwardosci) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!weglowoGrafitoweSredniejTwardosci){
-                    
+                  if (!weglowoGrafitoweSredniejTwardosci) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
                 }
                 break;
@@ -287,16 +307,15 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       weglowoGrafitoweTwarde.toString());
-                  Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(weglowoGrafitoweTwarde){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (weglowoGrafitoweTwarde) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!weglowoGrafitoweTwarde){
-                    
+                  if (!weglowoGrafitoweTwarde) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
                 }
                 break;
@@ -304,18 +323,16 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                 {
                   grafitowe = !grafitowe;
                   print(notification.title + ' =' + grafitowe.toString());
-                  Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(grafitowe){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (grafitowe) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!grafitowe){
-                    
+                  if (!grafitowe) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
-
                 }
                 break;
               case 'Naturalne grafitowe':
@@ -324,34 +341,31 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       naturanleGrafitowe.toString());
-                      Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(naturanleGrafitowe){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (naturanleGrafitowe) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!naturanleGrafitowe){
-                    
+                  if (!naturanleGrafitowe) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
-
                 }
                 break;
               case 'Wysokooporowe (grafit)':
                 {
                   wysokoOporowe = !wysokoOporowe;
                   print(notification.title + ' =' + wysokoOporowe.toString());
-                  Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(wysokoOporowe){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (wysokoOporowe) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!wysokoOporowe){
-                    
+                  if (!wysokoOporowe) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
                 }
                 break;
@@ -360,16 +374,15 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   elektrografitowe = !elektrografitowe;
                   print(
                       notification.title + ' =' + elektrografitowe.toString());
-                      Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(elektrografitowe){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (elektrografitowe) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!elektrografitowe){
-                    
+                  if (!elektrografitowe) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
                 }
                 break;
@@ -379,16 +392,15 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       elektroGrafitowaneMiekkie.toString());
-                       Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(elektroGrafitowaneMiekkie){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (elektroGrafitowaneMiekkie) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!elektroGrafitowaneMiekkie){
-                    
+                  if (!elektroGrafitowaneMiekkie) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
                 }
                 break;
@@ -399,18 +411,16 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       elektroGrafitowaneSredniejTwardosci.toString());
-                      Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(elektroGrafitowaneSredniejTwardosci){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (elektroGrafitowaneSredniejTwardosci) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!elektroGrafitowaneSredniejTwardosci){
-                    
+                  if (!elektroGrafitowaneSredniejTwardosci) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
-                      
                 }
                 break;
               case 'Elektrografitowane twarde':
@@ -419,16 +429,15 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   print(notification.title +
                       ' =' +
                       elektroGrafitowaneTwarde.toString());
-                    Item title = Provider.of<Items>(context, listen: false).findById(notification.title);
-                  if(elektroGrafitowaneTwarde){
+                  Item title = Provider.of<Items>(context, listen: false)
+                      .findById(notification.title);
+                  if (elektroGrafitowaneTwarde) {
                     selectedItem.add(title);
                     print(selectedItem);
                   }
-                  if(!elektroGrafitowaneTwarde){
-                    
+                  if (!elektroGrafitowaneTwarde) {
                     selectedItem.remove(title);
                     print(selectedItem);
-                  
                   }
                 }
                 break;

@@ -34,6 +34,8 @@ dependencies:
   sqflite: ^1.1.5
   rflutter_alert: ^1.1.0
   bitsdojo_window: ^0.1.0+1
+  csv: ^5.0.0
+  path_provider: ^2.0.2
 
 
   # The following adds the Cupertino Icons font to your application.
