@@ -8,32 +8,70 @@ class SlizgowyGeneralScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xFFFFD500),
       appBar: AppBar(
-        title: Text('MATERIAŁY STOSOWANE NA STYK I ŚLIZGOWE'),
+        backgroundColor: Color(0xFFF6A00C),
+        title: Text('MATERIAŁY STOSOWANE NA STYK I ŚLIZGOWE',
+            style: TextStyle(
+              fontSize: 19,
+            )),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(50.0),
-        child: Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
-          ElevatedButton(
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => SlizgowyScreen()));
-              },
-              child: Text('SZCZOTKI ELEKTROTECHNICZNE')),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => PierscienieKomutatoryScreen()));
-              },
-              child: Text('PIERŚCIENIE I KOMUTATORY')),
-          ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-              child: Text('Powrót')),
-        ]),
+      body: Center(
+        child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Color(0xFFF6A00C),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(color: Colors.white, width: 2.0))),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SlizgowyScreen()));
+                  },
+                  child: Container(
+                      height: 200,
+                      width: 200,
+                      child: Center(
+                          child: Text(
+                        'SZCZOTKI ELEKTROTECHNICZNE',
+                        style: TextStyle(
+                          fontSize: 19,
+                        ),
+                        textAlign: TextAlign.center,
+                      )))),
+              SizedBox(
+                width: 200,
+              ),
+              ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                      primary: Color(0xFFF6A00C),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                          side: BorderSide(color: Colors.white, width: 2.0))),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                PierscienieKomutatoryScreen()));
+                  },
+                  child: Container(
+                      height: 200,
+                      width: 200,
+                      child: Center(
+                          child: Text(
+                        'PIERŚCIENIE I KOMUTATORY',
+                        style: TextStyle(
+                          fontSize: 19,
+                        ),
+                        textAlign: TextAlign.center,
+                      )))),
+            ]),
       ),
     );
   }

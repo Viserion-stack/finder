@@ -61,6 +61,7 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFFF6A00C),
         title: Text('Styk Slizgowy'),
         actions: [
           Padding(
@@ -75,7 +76,7 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   child: Text(
                     'Zapisz to!',
                     style: TextStyle(
-                      color: Colors.blue,
+                      color: Color(0xFFF6A00C),
                       fontSize: 15,
                     ),
                   ),
