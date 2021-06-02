@@ -4,44 +4,83 @@ import 'package:giraffe/providers/item.dart';
 import 'dart:io';
 
 import 'package:path_provider/path_provider.dart';
+
 String nameFile = '';
 
-
 showAlertDialog(BuildContext context, List<Item> items) {
-  
   String saveController = TextEditingController().text;
-  
+
   List row = [];
   String csvData = '';
   print(nameFile);
 
   Widget saveButton = ElevatedButton(
     onPressed: () async {
-      for (int i = 0; i < items.length; i++) {
-        row = [];
-        row.add(items[i].numerGrupy);
-        row.add(items[i].nazwaGrupySzczotek);
-        row.add(items[i].dopuszczalanaGestoscPradu);
-        row.add(items[i].dopuszczalanaMaksymalnapredkoscObrotowa);
-        row.add(items[i].napieciePrzejsciaNaPareSzczotek);
-        row.add(items[i].napiecieMaszynyDlaKtorejSzczotkiSaPrzeznaczone);
-        row.add(items[i].rezystywnosc);
-        row.add(items[i].twardosc);
-        row.add(items[i].wspolczynnikTarciaMax);
-        row.add(items[i].zuzyciepo50hPracy);
-        row.add(items[i].ciezarObjetosciowy);
-        row.add(items[i].zawartoscPopiolu);
+      // for (int i = 0; i < items.length; i++) {
+      //   row = [];
+      //   row.add(items[i].numerGrupy);
+      //   row.add(items[i].nazwaGrupySzczotek);
+      //   row.add(items[i].dopuszczalanaGestoscPradu);
+      //   row.add(items[i].dopuszczalanaMaksymalnapredkoscObrotowa);
+      //   row.add(items[i].napieciePrzejsciaNaPareSzczotek);
+      //   row.add(items[i].napiecieMaszynyDlaKtorejSzczotkiSaPrzeznaczone);
+      //   row.add(items[i].rezystywnosc);
+      //   row.add(items[i].twardosc);
+      //   row.add(items[i].wspolczynnikTarciaMax);
+      //   row.add(items[i].zuzyciepo50hPracy);
+      //   row.add(items[i].ciezarObjetosciowy);
+      //   row.add(items[i].zawartoscPopiolu);
 
-        for (int j = 0; j < row.length; j++) {
-          csvData += (row[j] + ';');
-        }
-        csvData += '\n';
-        
-        Directory appDocDir = await getApplicationDocumentsDirectory();
-        String appDocPath = '${appDocDir.path}/$nameFile.csv';
-        final File file = File(appDocPath);
-        await file.writeAsString(csvData);
-      }
+      //   for (int j = 0; j < row.length; j++) {
+      //     csvData += (row[j] + ';');
+      //   }
+      //   csvData += '\n';
+
+      //   Directory appDocDir = await getApplicationDocumentsDirectory();
+      //   String appDocPath = '${appDocDir.path}/$nameFile.csv';
+      //   final File file = File(appDocPath);
+      //   await file.writeAsString(csvData);
+      // }
+      List<Item> data = items;
+
+      List<List<String>> csvData = [
+        <String>[
+          'Nazwa Grupy',
+          'Nazwa Grupy Szczotek'.trim(),
+          'Dopuszczalna gęstosc pradu'.trim(),
+          'Dpouszczalna maksymalna predkosc obwodowa'.trim(),
+          'Napięcie przejscia na pare szczotek '.trim(),
+          'Napiecie maszyny dla ktorej szczotki sa przeznaczone '.trim(),
+          'Rezystywność'.trim(),
+          'Twardość'.trim(),
+          'Wspolczynnik tarcia Max'.trim(),
+          'Zuzycie po 50h pracy'.trim(),
+          'Ciezar objetosciowy'.trim(),
+          'Zawartosc popiolu'.trim(),
+        ],
+        ...data.map((item) => [
+              item.numerGrupy,
+              item.nazwaGrupySzczotek,
+              item.dopuszczalanaGestoscPradu,
+              item.dopuszczalanaMaksymalnapredkoscObrotowa,
+              item.napieciePrzejsciaNaPareSzczotek,
+              item.napiecieMaszynyDlaKtorejSzczotkiSaPrzeznaczone,
+              item.rezystywnosc,
+              item.twardosc,
+              item.wspolczynnikTarciaMax,
+              item.zuzyciepo50hPracy,
+              item.ciezarObjetosciowy,
+              item.zawartoscPopiolu,
+            ])
+      ];
+      String csv =
+          const ListToCsvConverter(fieldDelimiter: ';').convert(csvData);
+      Directory appDocDir = await getApplicationDocumentsDirectory();
+      String appDocPath = '${appDocDir.path}/$nameFile.csv';
+      final File file = File(appDocPath);
+      await file.writeAsString(csv);
+
+      Navigator.of(context).pop();
     },
     style: ElevatedButton.styleFrom(
       primary: Colors.white,
@@ -81,7 +120,7 @@ showAlertDialog(BuildContext context, List<Item> items) {
         child: Padding(
           padding: const EdgeInsets.only(left: 15.0),
           child: TextFormField(
-            onChanged: (value){
+            onChanged: (value) {
               nameFile = value;
             },
             //controller: saveController,
