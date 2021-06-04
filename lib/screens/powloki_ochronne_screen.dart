@@ -3,6 +3,7 @@ import 'package:giraffe/helpers/data_table_powloki_ochronne.dart';
 import 'package:giraffe/helpers/data_table_powloki_ochronne2.dart';
 import 'package:giraffe/providers/item.dart';
 import 'package:giraffe/providers/items.dart';
+import 'package:giraffe/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class PowlokiOchronneScreen extends StatefulWidget {
@@ -24,6 +25,7 @@ class _PowlokiOchronneScreenState extends State<PowlokiOchronneScreen> {
     final powlokiOchronne2Data = Provider.of<Items>(context);
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color(0xFFF6A00C),
         title: Text('POWŁOKI OCHRONNE'),
       ),
       body: Column(
@@ -87,14 +89,25 @@ class _PowlokiOchronneScreenState extends State<PowlokiOchronneScreen> {
               Column(
                 children: [
                   ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xFFF6A00C),
+                    ),
                     onPressed: () {
-                      Navigator.of(context).pop();
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => HomeScreen()
+                              //Navigator.of(context).pop();
+
+                              ));
                     },
-                    child: Text('Powrót'),
+                    child: Text('Menu Główne'),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20.0),
                     child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        primary: Color(0xFFF6A00C),
+                      ),
                       onPressed: () {
                         setState(() {
                           selectedmaterials = [];

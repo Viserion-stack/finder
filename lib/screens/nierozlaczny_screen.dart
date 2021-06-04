@@ -24,83 +24,131 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('MATERIAŁY STOSOWANE NA STYKI NIEROZŁĄCZNE'),
+        backgroundColor: Color(0xFFF6A00C),
+        //title: Text('MATERIAŁY STOSOWANE NA STYKI NIEROZŁĄCZNE'),
       ),
       body: Column(
         children: [
-          Text('MATERIAŁY STOSOWANE NA STYKI NIEROZŁĄCZNE'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'MATERIAŁY STOSOWANE NA STYKI NIEROZŁĄCZNE',
+              style: TextStyle(fontSize: 35),
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                padding: const EdgeInsets.all(30.0),
-                child: DropdownButton(
-                  dropdownColor: Colors.blueGrey,
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 15,
-                  ),
-                  icon: Icon(
-                    Icons.keyboard_arrow_down,
-                    color: Colors.black,
-                    size: 35,
-                  ),
-                  hint: Text(
-                    '   Wybierz Temperaturę ',
-                    style: TextStyle(
-                      fontSize: 14,
-                      color: Colors.black,
+              Expanded(
+                child: Container(
+                  padding: const EdgeInsets.all(30.0),
+                  child: Center(
+                    child: DropdownButton(
+                      dropdownColor: Color(0xFFF6A00C),
+                      style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 15,
+                      ),
+                      icon: Icon(
+                        Icons.keyboard_arrow_down,
+                        color: Colors.black,
+                        size: 35,
+                      ),
+                      hint: Text(
+                        '   Wybierz Temperaturę ',
+                        style: TextStyle(
+                          fontSize: 14,
+                          color: Colors.black,
+                        ),
+                      ),
+                      elevation: 16,
+                      underline: Container(
+                        height: 0,
+                        color: Colors.white,
+                      ),
+                      value: valueChoose,
+                      onChanged: (String value) {
+                        setState(() {
+                          valueChoose = value;
+                          print(valueChoose);
+                          //print(value);
+                          // selectedtemp = komutatorData
+                          //     .where((prodItem) =>
+                          //         prodItem.tpo == valueChoose.substring(0, 3))
+                          //     .toList();
+                          // print(selectedtemp);
+
+                          //notifications = setlistItemsToListView(selectedCategory);
+                        });
+                      },
+                      items: listItem.map((String value) {
+                        return DropdownMenuItem(
+                          value: value,
+                          child: Text(
+                            value,
+                            style: TextStyle(fontSize: 14),
+                          ),
+                        );
+                      }).toList(),
                     ),
                   ),
-                  elevation: 16,
-                  underline: Container(
-                    height: 0,
-                    color: Colors.white,
-                  ),
-                  value: valueChoose,
-                  onChanged: (String value) {
-                    setState(() {
-                      valueChoose = value;
-                      print(valueChoose);
-                      //print(value);
-                      // selectedtemp = komutatorData
-                      //     .where((prodItem) =>
-                      //         prodItem.tpo == valueChoose.substring(0, 3))
-                      //     .toList();
-                      // print(selectedtemp);
-
-                      //notifications = setlistItemsToListView(selectedCategory);
-                    });
-                  },
-                  items: listItem.map((String value) {
-                    return DropdownMenuItem(
-                      value: value,
-                      child: Text(
-                        value,
-                        style: TextStyle(fontSize: 14),
-                      ),
-                    );
-                  }).toList(),
                 ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => PowlokiOchronneScreen()));
-                },
-                child: Text('POWŁOKI OCHRONNE'),
+              Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF6A00C),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xFFF6A00C),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => PowlokiOchronneScreen()));
+                  },
+                  child: Center(
+                      child: Text(
+                    'POWŁOKI OCHRONNE',
+                    textAlign: TextAlign.center,
+                  )),
+                ),
               ),
-              ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('POWRÓT'),
+              SizedBox(width: 50,),
+              Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF6A00C),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xFFF6A00C),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Center(
+                      child: Text(
+                    'MENU GŁÓWNE',
+                    textAlign: TextAlign.center,
+                  )),
+                ),
               ),
+              SizedBox(width: 100,),
             ],
           ),
-         
         ],
       ),
     );

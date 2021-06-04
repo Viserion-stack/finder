@@ -93,7 +93,9 @@ showAlertDialog(BuildContext context, List<Item> items) {
   );
 
   Widget cancelButton = ElevatedButton(
-    onPressed: () {},
+    onPressed: () {
+      Navigator.pop(context);
+    },
     style: ElevatedButton.styleFrom(
       primary: Colors.white,
       elevation: 0,
