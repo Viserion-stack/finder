@@ -380,6 +380,17 @@ class Items with ChangeNotifier {
       tempMieknienia: '180',
       temptopnienia: '960',
     ),
+    ItemPowlokiOchronne2(
+      material: 'Aluminium',
+      gestosc: '2.7',
+      p: '2.9',
+      lambda: '210',
+      hb: '27',
+      alfa: '0.004',
+      e: '0.72',
+      tempMieknienia: '150',
+      temptopnienia: '657',
+    ),
   ];
 
   // var _showFavoritesOnly = false;

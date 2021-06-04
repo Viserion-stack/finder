@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:giraffe/helpers/data_table_powloki_ochronne2.dart';
+import 'package:giraffe/providers/item.dart';
+import 'package:giraffe/providers/items.dart';
 import 'package:giraffe/screens/powloki_ochronne_screen.dart';
+import 'package:provider/provider.dart';
 
 class NierozlacznyScreen extends StatefulWidget {
   NierozlacznyScreen({Key key}) : super(key: key);
@@ -9,19 +13,15 @@ class NierozlacznyScreen extends StatefulWidget {
 }
 
 class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
+  List<ItemPowlokiOchronne2> selectedmaterials = [];
   String valueChoose = 'Aluminium';
   List<String> listItem = [
     'Aluminium',
     'Miedź',
-    '220°C',
-    '230°C',
-    '250°C',
-    '270°C',
-    '350°C',
-    '600°C',
   ];
   @override
   Widget build(BuildContext context) {
+    final powlokiOchronne2Data = Provider.of<Items>(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFF6A00C),
@@ -69,17 +69,18 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
                       value: valueChoose,
                       onChanged: (String value) {
                         setState(() {
-                          valueChoose = value;
-                          print(valueChoose);
-                          //print(value);
-                          // selectedtemp = komutatorData
-                          //     .where((prodItem) =>
-                          //         prodItem.tpo == valueChoose.substring(0, 3))
-                          //     .toList();
-                          // print(selectedtemp);
-
-                          //notifications = setlistItemsToListView(selectedCategory);
-                        });
+                          if (selectedmaterials.length < 4) {
+                        valueChoose = value;
+                        print(valueChoose);
+                        var value1 = powlokiOchronne2Data
+                            .findByIdItemsPowlokiOchronneByName(valueChoose);
+                        if (selectedmaterials.contains(value1)) {
+                          selectedmaterials.remove(value1);
+                        } else {
+                          selectedmaterials.add(value1);
+                        }
+                      }
+                    });
                       },
                       items: listItem.map((String value) {
                         return DropdownMenuItem(
@@ -121,7 +122,9 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
                   )),
                 ),
               ),
-              SizedBox(width: 50,),
+              SizedBox(
+                width: 50,
+              ),
               Container(
                 height: 100,
                 width: 100,
@@ -137,17 +140,25 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
                     ),
                   ),
                   onPressed: () {
-                    Navigator.of(context).pop();
+                    
                   },
                   child: Center(
                       child: Text(
-                    'MENU GŁÓWNE',
+                    'Zapisz',
                     textAlign: TextAlign.center,
                   )),
                 ),
               ),
-              SizedBox(width: 100,),
+              SizedBox(
+                width: 100,
+              ),
             ],
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          TabelkaPowlokiOchronne2(
+            itemsPowlokiOchronne2: selectedmaterials,
           ),
         ],
       ),
