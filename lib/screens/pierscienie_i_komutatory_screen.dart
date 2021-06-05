@@ -31,31 +31,72 @@ class _PierscienieKomutatoryScreenState
     // print(komutatorData);
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+              onTap: () {
+                // showAlertDialog(context, selectedItem);
+              },
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    'Zapisz',
+                    style: TextStyle(
+                      color: Color(0xFFF6A00C),
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18),
+                ),
+              ),
+            ),
+          ),
+        ],
+        backgroundColor: Color(0xFFF6A00C),
         title: Text('PIERŚCIENIE I KOMUTATORY'),
       ),
       body: Column(children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 30.0, left: 390),
-              child: Text(
-                'Maksymalna temperatura pracy °C',
-                style: TextStyle(fontSize: 17),
+        Row(children: [
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 30.0, left: 270),
+              child: Center(
+                child: Text(
+                  'Maksymalna temperatura pracy °C',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 22),
+                ),
               ),
             ),
-            SizedBox(height: 50),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-                child: Text('Powrót')),
-          ],
-        ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, right: 100),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Color(0xFFF6A00C),
+              ),
+              onPressed: () {
+                setState(() {
+                  selectedtemp = [];
+                });
+              },
+              child: Text('Wyczyść tabele'),
+            ),
+          ),
+        ]),
+        SizedBox(height: 50),
+
+        //SizedBox(width: 10),
+
         Container(
           padding: const EdgeInsets.all(30.0),
           child: DropdownButton(
-            dropdownColor: Colors.blueGrey,
+            dropdownColor: Color(0xFFF6A00C),
             style: TextStyle(
               color: Colors.black,
               fontSize: 15,
@@ -104,13 +145,14 @@ class _PierscienieKomutatoryScreenState
           ),
         ),
         Expanded(
-            child: Align(
-          alignment: Alignment.topCenter,
-          child: Padding(
-            padding: const EdgeInsets.only(top: 15.0),
-            child: TabelkaKomutator(itemskomutator: selectedtemp),
+          child: Align(
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 15.0),
+              child: TabelkaKomutator(itemskomutator: selectedtemp),
+            ),
           ),
-        ),)
+        )
       ]),
     );
   }

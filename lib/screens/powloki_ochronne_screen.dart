@@ -37,7 +37,7 @@ class _PowlokiOchronneScreenState extends State<PowlokiOchronneScreen> {
               Container(
                 padding: const EdgeInsets.all(30.0),
                 child: DropdownButton(
-                  dropdownColor: Colors.blueGrey,
+                  dropdownColor: Color(0xFFF6A00C),
                   style: TextStyle(
                     color: Colors.black,
                     fontSize: 15,
