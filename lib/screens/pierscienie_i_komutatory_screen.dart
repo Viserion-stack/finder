@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:giraffe/helpers/data_table_komutator.helper.dart';
+import 'package:giraffe/helpers/save_alert.dart';
 import 'package:giraffe/providers/item.dart';
 import 'package:giraffe/providers/items.dart';
 import 'package:provider/provider.dart';
@@ -36,7 +37,7 @@ class _PierscienieKomutatoryScreenState
             padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
               onTap: () {
-                // showAlertDialog(context, selectedItem);
+                 saveAlertKomutatory(context, selectedtemp);
               },
               child: Container(
                 child: Padding(

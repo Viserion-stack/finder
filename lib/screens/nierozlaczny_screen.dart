@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:giraffe/helpers/data_table_powloki_ochronne2.dart';
+import 'package:giraffe/helpers/save_alert.dart';
 import 'package:giraffe/providers/item.dart';
 import 'package:giraffe/providers/items.dart';
 import 'package:giraffe/screens/powloki_ochronne_screen.dart';
@@ -30,7 +31,7 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(top: 8.0, bottom: 30),
             child: Text(
               'MATERIAŁY STOSOWANE NA STYKI NIEROZŁĄCZNE',
               style: TextStyle(fontSize: 35),
@@ -41,7 +42,7 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
             children: [
               Expanded(
                 child: Container(
-                  padding: const EdgeInsets.all(30.0),
+                  padding: const EdgeInsets.all(60.0),
                   child: Center(
                     child: DropdownButton(
                       dropdownColor: Color(0xFFF6A00C),
@@ -70,17 +71,18 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
                       onChanged: (String value) {
                         setState(() {
                           if (selectedmaterials.length < 4) {
-                        valueChoose = value;
-                        print(valueChoose);
-                        var value1 = powlokiOchronne2Data
-                            .findByIdItemsPowlokiOchronneByName(valueChoose);
-                        if (selectedmaterials.contains(value1)) {
-                          selectedmaterials.remove(value1);
-                        } else {
-                          selectedmaterials.add(value1);
-                        }
-                      }
-                    });
+                            valueChoose = value;
+                            print(valueChoose);
+                            var value1 = powlokiOchronne2Data
+                                .findByIdItemsPowlokiOchronneByName(
+                                    valueChoose);
+                            if (selectedmaterials.contains(value1)) {
+                              selectedmaterials.remove(value1);
+                            } else {
+                              selectedmaterials.add(value1);
+                            }
+                          }
+                        });
                       },
                       items: listItem.map((String value) {
                         return DropdownMenuItem(
@@ -94,6 +96,36 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
                     ),
                   ),
                 ),
+              ),
+              Container(
+                height: 100,
+                width: 100,
+                decoration: BoxDecoration(
+                  color: Color(0xFFF6A00C),
+                  borderRadius: BorderRadius.circular(50),
+                ),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    primary: Color(0xFFF6A00C),
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(18.0),
+                    ),
+                  ),
+                  onPressed: () {
+                    setState(() {
+                      selectedmaterials = [];
+                    });
+                    
+                  },
+                  child: Center(
+                      child: Text(
+                    'Wyczyść tabele',
+                    textAlign: TextAlign.center,
+                  )),
+                ),
+              ),
+              SizedBox(
+                width: 50,
               ),
               Container(
                 height: 100,
@@ -140,7 +172,7 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
                     ),
                   ),
                   onPressed: () {
-                    
+                    saveAlertNierozlaczne(context, selectedmaterials);
                   },
                   child: Center(
                       child: Text(
@@ -155,7 +187,7 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
             ],
           ),
           SizedBox(
-            height: 30,
+            height: 60,
           ),
           TabelkaPowlokiOchronne2(
             itemsPowlokiOchronne2: selectedmaterials,
