@@ -21,23 +21,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Numer grupy',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 6,
-                ),
-              ),
-            ),
-          ),
-          DataColumn(
-            label: Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'Nazwa grupy szczotek',
+                  'Numer grupy ',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -53,7 +37,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Dopuszczalna gęstość prądu',
+                  'Nazwa grupy szczotek ',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -69,7 +53,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Dopuszczalana Maksymalna predkosc Obrotowa',
+                  'Dopuszczalna gęstość prądu [A/cm\u00B2] ',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -85,7 +69,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Napiecie Przejscia Na Pare Szczotek',
+                  'Dopuszczalna maksymalna prędkość obwodowa [m/s]',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -101,7 +85,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Napiecie Maszyny Dla Ktorej Szczotki Sa Przeznaczone',
+                  'Napięcie przejscia na pare szczotek [V]',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -117,7 +101,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Rezystywnosc',
+                  'Napięcie maszyny dla której szczotki są przeznaczone [V]',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -133,7 +117,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Twardosc',
+                  'Rezystywność [Ω*mm\u00B2/m]' ,
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -149,7 +133,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Wspolczynnik Tarcia Max',
+                  'Twardość [Sh]',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -165,7 +149,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Zuzycie po 50h Pracy',
+                  'Współczynnik tarcia max',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -181,7 +165,7 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Ciezar Objetosciowy',
+                  'Zużycie po 50h pracy',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -197,7 +181,23 @@ class Tabelka extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Zawartosc Popiolu',
+                  'Ciężar objetośćiowy [G/cm\u00B3]',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 12,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 8,
+                ),
+              ),
+            ),
+          ),
+          DataColumn(
+            label: Flexible(
+              child: Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Text(
+                  'Zawartość popiolu [%]',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,

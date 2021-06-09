@@ -120,7 +120,10 @@ class _PowlokiOchronneScreenState extends State<PowlokiOchronneScreen> {
               ),
             ],
           ),
-          Divider(),
+          SizedBox(height: 20),
+          Text(
+              'W celu lepszego zabezpieczenia połączenia Al-Cu, należy zastosować smarowanie wazeliną bezkwasową lub innego rodzaju smarem ochronnym.'),
+          SizedBox(height: 20),
           TabelkaPowlokiOchronne2(itemsPowlokiOchronne2: selectedmaterials),
           Expanded(child: Container()),
           Container(

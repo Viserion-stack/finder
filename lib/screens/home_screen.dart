@@ -30,8 +30,8 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       context: context,
       type: AlertType.none,
-      title: 'Autor: Mateusz Malicki',
-      desc: "Temat: temat \n Rok: rok",
+      title: 'Autor: Mateusz Molicki',
+      desc: "Temat: Materiały stykowe stosowane w elektrotechnice \n Rok: 2021",
       buttons: [
         DialogButton(
           color: Color(0xFFF8BB06),

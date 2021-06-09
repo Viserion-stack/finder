@@ -11,7 +11,7 @@ class SlizgowyGeneralScreen extends StatelessWidget {
       backgroundColor: Color(0xFFFFD500),
       appBar: AppBar(
         backgroundColor: Color(0xFFF6A00C),
-        title: Text('MATERIAŁY STOSOWANE NA STYK I ŚLIZGOWE',
+        title: Text('MATERIAŁY STOSOWANE NA ZESTYK NIEROZŁĄCZNY RUCHOMY',
             style: TextStyle(
               fontSize: 19,
             )),

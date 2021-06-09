@@ -10,7 +10,7 @@ void main() {
   doWhenWindowReady((){
 final win = appWindow;
 final initialSize = Size(1500,800);
-win.minSize = initialSize;
+//win.minSize = initialSize;
 win.alignment = Alignment.center;
 win.title = "Materiały stykowe stosowane w elektrotechnice";
 win.show();

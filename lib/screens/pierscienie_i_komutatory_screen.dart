@@ -15,6 +15,7 @@ class _PierscienieKomutatoryScreenState
     extends State<PierscienieKomutatoryScreen> {
   String valueChoose = '160°C';
   List<ItemKomutator> selectedtemp = [];
+  List<ItemKomutator> fullList = [];
   List<String> listItem = [
     '160°C',
     '180°C',
@@ -37,7 +38,7 @@ class _PierscienieKomutatoryScreenState
             padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
               onTap: () {
-                 saveAlertKomutatory(context, selectedtemp);
+                saveAlertKomutatory(context, selectedtemp);
               },
               child: Container(
                 child: Padding(
@@ -59,7 +60,7 @@ class _PierscienieKomutatoryScreenState
           ),
         ],
         backgroundColor: Color(0xFFF6A00C),
-        title: Text('PIERŚCIENIE I KOMUTATORY'),
+        title: Text('Pierścienie i komutatory'),
       ),
       body: Column(children: [
         Row(children: [
@@ -83,7 +84,7 @@ class _PierscienieKomutatoryScreenState
               ),
               onPressed: () {
                 setState(() {
-                  selectedtemp = [];
+                  fullList = [];
                 });
               },
               child: Text('Wyczyść tabele'),
@@ -130,6 +131,7 @@ class _PierscienieKomutatoryScreenState
                         prodItem.tpo == valueChoose.substring(0, 3))
                     .toList();
                 print(selectedtemp);
+                fullList = new List.from(selectedtemp)..addAll(fullList);
 
                 //notifications = setlistItemsToListView(selectedCategory);
               });
@@ -150,7 +152,7 @@ class _PierscienieKomutatoryScreenState
             alignment: Alignment.topCenter,
             child: Padding(
               padding: const EdgeInsets.only(top: 15.0),
-              child: TabelkaKomutator(itemskomutator: selectedtemp),
+              child: TabelkaKomutator(itemskomutator: fullList),
             ),
           ),
         )

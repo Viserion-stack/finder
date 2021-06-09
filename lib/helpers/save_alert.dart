@@ -167,7 +167,7 @@ showAlertDialog(BuildContext context, List<Item> items) {
 }
 
 saveAlertKomutatory(BuildContext context, List<ItemKomutator> items) {
-  String saveController = TextEditingController().text;
+  final saveController = TextEditingController();
 
   List row = [];
   String csvData = '';
@@ -175,6 +175,7 @@ saveAlertKomutatory(BuildContext context, List<ItemKomutator> items) {
 
   Widget saveButton = ElevatedButton(
     onPressed: () async {
+      try{
       List<ItemKomutator> data = items;
 
       List<List<String>> csvData = [
@@ -205,7 +206,9 @@ saveAlertKomutatory(BuildContext context, List<ItemKomutator> items) {
       await file.writeAsString(csv);
 
       Navigator.of(context).pop();
-    },
+    }catch (error){
+      print(error);
+    }},
     style: ElevatedButton.styleFrom(
       primary: Colors.white,
       elevation: 0,
@@ -246,10 +249,11 @@ saveAlertKomutatory(BuildContext context, List<ItemKomutator> items) {
         child: Padding(
           padding: const EdgeInsets.only(left: 15.0),
           child: TextFormField(
+            keyboardType: TextInputType.text,
             onChanged: (value) {
-              nameFile = value;
+              nameFile = saveController.text;
             },
-            //controller: saveController,
+            controller: saveController,
             decoration: InputDecoration(
               enabledBorder: UnderlineInputBorder(
                 borderSide: BorderSide(
@@ -375,7 +379,7 @@ saveAlertNierozlaczne(BuildContext context, List<ItemPowlokiOchronne2> items) {
           padding: const EdgeInsets.only(left: 15.0),
           child: TextFormField(
             onChanged: (value) {
-              nameFile = value;
+              nameFile = value.toString();
             },
             //controller: saveController,
             decoration: InputDecoration(

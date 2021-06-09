@@ -15,13 +15,13 @@ class TabelkaKomutator extends StatelessWidget {
         showBottomBorder: true,
         dividerThickness: 1,
         columnSpacing: 5,
-        columns: const <DataColumn>[
+        columns: <DataColumn>[
           DataColumn(
             label: Flexible(
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'Materiał γ',
+                  'Materiał',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,
@@ -52,14 +52,26 @@ class TabelkaKomutator extends StatelessWidget {
             label: Flexible(
               child: Padding(
                 padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'IACS (%)',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
+                child: RichText(
+                  text: TextSpan(
+                    // Note: Styles for TextSpans must be explicitly defined.
+                    // Child text spans will inherit styles from parent
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'IACS ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                          text: '%',
+                          style: TextStyle(fontStyle: FontStyle.italic)),
+                    ],
                   ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
                 ),
               ),
             ),
@@ -68,14 +80,26 @@ class TabelkaKomutator extends StatelessWidget {
             label: Flexible(
               child: Padding(
                 padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'σ (MPA)',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
+                child: RichText(
+                  text: TextSpan(
+                    // Note: Styles for TextSpans must be explicitly defined.
+                    // Child text spans will inherit styles from parent
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'α ',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                          text: 'MPa',
+                          style: TextStyle(fontStyle: FontStyle.italic)),
+                    ],
                   ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
                 ),
               ),
             ),
@@ -84,14 +108,29 @@ class TabelkaKomutator extends StatelessWidget {
             label: Flexible(
               child: Padding(
                 padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'Hb',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
+                child: RichText(
+                  text: TextSpan(
+                    // Note: Styles for TextSpans must be explicitly defined.
+                    // Child text spans will inherit styles from parent
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'H',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                          text: 'B',
+                          style: TextStyle(
+                            fontSize: 8,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
                   ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
                 ),
               ),
             ),
@@ -100,14 +139,29 @@ class TabelkaKomutator extends StatelessWidget {
             label: Flexible(
               child: Padding(
                 padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'Ts (°C)',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
+                child: RichText(
+                  text: TextSpan(
+                    // Note: Styles for TextSpans must be explicitly defined.
+                    // Child text spans will inherit styles from parent
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'T',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                          text: 's',
+                          style: TextStyle(
+                            fontSize: 8,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
                   ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
                 ),
               ),
             ),
@@ -116,14 +170,29 @@ class TabelkaKomutator extends StatelessWidget {
             label: Flexible(
               child: Padding(
                 padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'Tpo (°C)',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
+                child: RichText(
+                  text: TextSpan(
+                    // Note: Styles for TextSpans must be explicitly defined.
+                    // Child text spans will inherit styles from parent
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'T',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextSpan(
+                          text: 'po',
+                          style: TextStyle(
+                            fontSize: 8,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
                   ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
                 ),
               ),
             ),

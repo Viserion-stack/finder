@@ -30,7 +30,7 @@ class LeftSide extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-        width: 300,
+        width: 400,
         child: Container(
             color: sidebarColor,
             child: Column(
@@ -41,7 +41,7 @@ class LeftSide extends StatelessWidget {
                   child: Column(
                     children: [
                       Text(
-                        'Przeznaczenie styku',
+                        'Przeznaczenie zestyku',
                         style: GoogleFonts.quicksand(
                           fontSize: 24,
                           color: Colors.white,
@@ -60,12 +60,13 @@ class LeftSide extends StatelessWidget {
                                       SlizgowyGeneralScreen()));
                         },
                         child: Container(
-                          width: 180,
+                          width: 280,
                           child: Center(
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Text(
-                                'Styk slizgowy',
+                                'Zestyk nierozłączny ruchomy',
+                                textAlign: TextAlign.center,
                                 style: GoogleFonts.quicksand(
                                   fontSize: 18,
                                   color: Colors.white,
@@ -91,12 +92,13 @@ class LeftSide extends StatelessWidget {
                                   builder: (context) => NierozlacznyScreen()));
                         },
                         child: Container(
-                          width: 180,
+                          width: 280,
                           child: Center(
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Text(
-                                'Styk Nierozłączny',
+                                'Zestyk nierozłączny nieruchomy',
+                                textAlign: TextAlign.center,
                                 style: GoogleFonts.quicksand(
                                   fontSize: 18,
                                   color: Colors.white,
@@ -122,12 +124,12 @@ class LeftSide extends StatelessWidget {
                                   builder: (context) => RozlacznyScreen()));
                         },
                         child: Container(
-                          width: 180,
+                          width: 280,
                           child: Center(
                             child: Padding(
                               padding: const EdgeInsets.all(10.0),
                               child: Text(
-                                'Styk Rozłączny',
+                                'Zestyk rozłączny',
                                 style: GoogleFonts.quicksand(
                                   fontSize: 18,
                                   color: Colors.white,

@@ -117,7 +117,7 @@ class TabelkaPowlokiOchronne2 extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'E(105 MPA)',
+                  'E(105 MPa)',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 12,

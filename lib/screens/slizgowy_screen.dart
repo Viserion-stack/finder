@@ -25,7 +25,7 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
     '120V-230V',
     'do 500V',
     'do 1000V',
-    '1500 i więcej',
+    '1500V i więcej',
   ];
   bool brazowografitowe = false;
   bool miedziowoGrafitoweZduzaZawartosciaMiedzi = false;
@@ -62,19 +62,49 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFF6A00C),
-        title: Text('Styk Slizgowy'),
+        title: Text('Zestyk nierozłączny ruchomy'),
         actions: [
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: GestureDetector(
-              onTap: (){
-                showAlertDialog(context, selectedItem);
+              onTap: () {
+                setState(() {
+                  selectedItem = [];
+                  notifications.forEach((notification) {
+                    notification.value = false;
+                    allowNotifications.value = false;
+                  });
+                });
               },
-                          child: Container(
+              child: Container(
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Text(
-                    'Zapisz to!',
+                    'Wyczyść tabele',
+                    style: TextStyle(
+                      color: Color(0xFFF6A00C),
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(18),
+                ),
+              ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: GestureDetector(
+              onTap: () {
+                showAlertDialog(context, selectedItem);
+              },
+              child: Container(
+                child: Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Text(
+                    'Zapisz',
                     style: TextStyle(
                       color: Color(0xFFF6A00C),
                       fontSize: 15,
@@ -99,7 +129,7 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
               Padding(
                 padding: const EdgeInsets.only(top: 30.0, left: 20),
                 child: Text(
-                  'Napięcie Pracy Maszyny:',
+                  'Napięcie pracy maszyny:',
                   style: TextStyle(fontSize: 17),
                 ),
               ),
