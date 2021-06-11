@@ -76,7 +76,7 @@ showAlertDialog(BuildContext context, List<Item> items) {
       String csv =
           const ListToCsvConverter(fieldDelimiter: ';').convert(csvData);
       Directory appDocDir = await getApplicationDocumentsDirectory();
-      String appDocPath = '${appDocDir.path}/$nameFile.csv';
+      String appDocPath = '${appDocDir.path}/Materialy_stykowe/$nameFile.csv';
       final File file = File(appDocPath);
       await file.writeAsString(csv);
 
@@ -175,40 +175,46 @@ saveAlertKomutatory(BuildContext context, List<ItemKomutator> items) {
 
   Widget saveButton = ElevatedButton(
     onPressed: () async {
-      try{
-      List<ItemKomutator> data = items;
+      try {
+        List<ItemKomutator> data = items;
 
-      List<List<String>> csvData = [
-        <String>[
-          'Material',
-          'proporcje'.trim(),
-          'iacs'.trim(),
-          'mpa'.trim(),
-          'hb'.trim(),
-          'ts'.trim(),
-          'tpo'.trim(),
-        ],
-        ...data.map((item) => [
-              item.material,
-              item.proporcje,
-              item.iacs,
-              item.mpa,
-              item.hb,
-              item.ts,
-              item.tpo,
-            ])
-      ];
-      String csv =
-          const ListToCsvConverter(fieldDelimiter: ';').convert(csvData);
-      Directory appDocDir = await getApplicationDocumentsDirectory();
-      String appDocPath = '${appDocDir.path}/$nameFile.txt';
-      final File file = File(appDocPath);
-      await file.writeAsString(csv);
+        List<List<String>> csvData = [
+          <String>[
+            'Material',
+            'proporcje'.trim(),
+            'iacs'.trim(),
+            'mpa'.trim(),
+            'hb'.trim(),
+            'ts'.trim(),
+            'tpo'.trim(),
+          ],
+          ...data.map((item) => [
+                item.material,
+                item.proporcje,
+                item.iacs,
+                item.mpa,
+                item.hb,
+                item.ts,
+                item.tpo,
+              ])
+        ];
+        String csv =
+            const ListToCsvConverter(fieldDelimiter: ';').convert(csvData);
+        Directory appDocDir = await getApplicationDocumentsDirectory();
+        new Directory('${appDocDir.path}/Materialy_stykowe')
+            .create(recursive: true)
+            .then((Directory file) {
+          String appDocPath =
+              '${appDocDir.path}/Materialy_stykowe/$nameFile.csv';
+          final File file = File(appDocPath);
+          file.writeAsString(csv);
+        });
 
-      Navigator.of(context).pop();
-    }catch (error){
-      print(error);
-    }},
+        Navigator.of(context).pop();
+      } catch (error) {
+        print(error);
+      }
+    },
     style: ElevatedButton.styleFrom(
       primary: Colors.white,
       elevation: 0,
@@ -332,7 +338,7 @@ saveAlertNierozlaczne(BuildContext context, List<ItemPowlokiOchronne2> items) {
       String csv =
           const ListToCsvConverter(fieldDelimiter: ';').convert(csvData);
       Directory appDocDir = await getApplicationDocumentsDirectory();
-      String appDocPath = '${appDocDir.path}/$nameFile.txt';
+      String appDocPath = '${appDocDir.path}/Materialy_stykowe/$nameFile.csv';
       final File file = File(appDocPath);
       await file.writeAsString(csv);
 

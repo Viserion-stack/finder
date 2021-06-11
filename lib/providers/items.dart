@@ -309,7 +309,7 @@ class Items with ChangeNotifier {
     ),
     ItemPowlokiOchronne(
       lp: '2',
-      powlokiOchronne: 'Al (powłoka miedziana)',
+      powlokiOchronne: 'Al (powłoka miedziana) - Cu',
       wskaznikOceny: '0.7',
     ),
     ItemPowlokiOchronne(

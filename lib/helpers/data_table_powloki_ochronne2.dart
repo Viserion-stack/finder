@@ -15,7 +15,7 @@ class TabelkaPowlokiOchronne2 extends StatelessWidget {
         showBottomBorder: true,
         dividerThickness: 1,
         columnSpacing: 5,
-        columns: const <DataColumn>[
+        columns: <DataColumn>[
           DataColumn(
             label: Flexible(
               child: Padding(
@@ -24,7 +24,7 @@ class TabelkaPowlokiOchronne2 extends StatelessWidget {
                   'Materiał',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 12,
+                    fontSize: 13,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 6,
@@ -37,10 +37,178 @@ class TabelkaPowlokiOchronne2 extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  '            Gęstość (g/cm3)',
+                  '            Gęstość (g/cm\u00B3)',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 12,
+                    fontSize: 13,
+                  ),
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 8,
+                ),
+              ),
+            ),
+          ),
+          DataColumn(
+            label: Flexible(
+              child: Padding(
+                padding: EdgeInsets.all(5.0),
+                child: RichText(
+                  text: TextSpan(
+                    // Note: Styles for TextSpans must be explicitly defined.
+                    // Child text spans will inherit styles from parent
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'ρ ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic),
+                      ),
+                      TextSpan(
+                          text: '(10\u207B\u2078 Ωm)',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          DataColumn(
+            label: Flexible(
+              child: Padding(
+                padding: EdgeInsets.all(5.0),
+                child: RichText(
+                  text: TextSpan(
+                    // Note: Styles for TextSpans must be explicitly defined.
+                    // Child text spans will inherit styles from parent
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'λ',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic),
+                      ),
+                      TextSpan(
+                          text: ' (W/m°C)',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          DataColumn(
+            label: Flexible(
+              child: Padding(
+                padding: EdgeInsets.all(5.0),
+                child: RichText(
+                  text: TextSpan(
+                    // Note: Styles for TextSpans must be explicitly defined.
+                    // Child text spans will inherit styles from parent
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'H',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic),
+                      ),
+                      TextSpan(
+                          text: 'b',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 10,
+                            fontStyle: FontStyle.italic,
+                          )),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          DataColumn(
+            label: Flexible(
+              child: Padding(
+                padding: EdgeInsets.all(5.0),
+                child: RichText(
+                  text: TextSpan(
+                    // Note: Styles for TextSpans must be explicitly defined.
+                    // Child text spans will inherit styles from parent
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'α',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic),
+                      ),
+                      TextSpan(
+                          text: ' (°C\u207B\u00B9)',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          DataColumn(
+            label: Flexible(
+              child: Padding(
+                padding: EdgeInsets.all(5.0),
+                child: RichText(
+                  text: TextSpan(
+                    // Note: Styles for TextSpans must be explicitly defined.
+                    // Child text spans will inherit styles from parent
+                    style: TextStyle(
+                      fontSize: 14.0,
+                      color: Colors.black,
+                    ),
+                    children: <TextSpan>[
+                      TextSpan(
+                        text: 'E',
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontStyle: FontStyle.italic),
+                      ),
+                      TextSpan(
+                          text: ' (10\u2075 MPa)',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+          DataColumn(
+            label: Flexible(
+              child: Padding(
+                padding: EdgeInsets.all(5.0),
+                child: Text(
+                  'Temp. mięknienia',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 14,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 8,
@@ -53,106 +221,10 @@ class TabelkaPowlokiOchronne2 extends StatelessWidget {
               child: Padding(
                 padding: EdgeInsets.all(5.0),
                 child: Text(
-                  'ρ(10-8 Ωm)',
+                  'Temp. topnienia',
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
-                ),
-              ),
-            ),
-          ),
-          DataColumn(
-            label: Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'λ (W/m°C)',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
-                ),
-              ),
-            ),
-          ),
-          DataColumn(
-            label: Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'Hb',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
-                ),
-              ),
-            ),
-          ),
-          DataColumn(
-            label: Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'α (°C-1)',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
-                ),
-              ),
-            ),
-          ),
-          DataColumn(
-            label: Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'E(105 MPa)',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
-                ),
-              ),
-            ),
-          ),
-          DataColumn(
-            label: Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'Temp. Mięknienia',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
-                  ),
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 8,
-                ),
-              ),
-            ),
-          ),
-          DataColumn(
-            label: Flexible(
-              child: Padding(
-                padding: EdgeInsets.all(5.0),
-                child: Text(
-                  'Temp. Topnienia',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 12,
+                    fontSize: 14,
                   ),
                   overflow: TextOverflow.ellipsis,
                   maxLines: 8,

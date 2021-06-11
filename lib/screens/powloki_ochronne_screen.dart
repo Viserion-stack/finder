@@ -23,6 +23,7 @@ class _PowlokiOchronneScreenState extends State<PowlokiOchronneScreen> {
   @override
   Widget build(BuildContext context) {
     final powlokiOchronne2Data = Provider.of<Items>(context);
+    const int b = 0x62;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFFF6A00C),
@@ -88,20 +89,20 @@ class _PowlokiOchronneScreenState extends State<PowlokiOchronneScreen> {
               ),
               Column(
                 children: [
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      primary: Color(0xFFF6A00C),
-                    ),
-                    onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => HomeScreen()
-                              //Navigator.of(context).pop();
+                  // ElevatedButton(
+                  //   style: ElevatedButton.styleFrom(
+                  //     primary: Color(0xFFF6A00C),
+                  //   ),
+                  //   onPressed: () {
+                  //     Navigator.push(
+                  //         context,
+                  //         MaterialPageRoute(builder: (context) => HomeScreen()
+                  //             //Navigator.of(context).pop();
 
-                              ));
-                    },
-                    child: Text('Menu Główne'),
-                  ),
+                  //             ));
+                  //   },
+                  //   child: Text('Menu Główne'),
+                  // ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20.0),
                     child: ElevatedButton(
@@ -129,10 +130,65 @@ class _PowlokiOchronneScreenState extends State<PowlokiOchronneScreen> {
           Container(
             padding: EdgeInsets.only(bottom: 20),
             alignment: Alignment.bottomCenter,
-            child: Text(
-              ' ρ - rezystywność, λ - przewodność cieplna, Hb - twardość Brinella, α - temp. współczynnik rezzystancji, E - moduł Yanga',
-              style: TextStyle(
-                fontSize: 22,
+            child: RichText(
+              text: TextSpan(
+                // Note: Styles for TextSpans must be explicitly defined.
+                // Child text spans will inherit styles from parent
+                style: TextStyle(
+                  fontSize: 14.0,
+                  color: Colors.black,
+                ),
+                children: <TextSpan>[
+                  TextSpan(
+                    text: 'ρ ',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                  TextSpan(
+                      text: '- rezystywność, ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      )),
+                  TextSpan(
+                    text: 'λ ',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                  TextSpan(
+                      text: '- przewodność cieplna, ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      )),
+                  TextSpan(
+                    text: 'H' ,
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                  TextSpan(
+                    text: 'b ' ,
+                    style: TextStyle(fontStyle: FontStyle.italic, fontSize: 10),
+                  ),
+                  TextSpan(
+                      text: '- twardość Brinella, ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      )),
+                  TextSpan(
+                    text: 'α ',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                  TextSpan(
+                      text: '- temp. współczynnik rezystancji, ',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      )),
+                  TextSpan(
+                    text: 'E ',
+                    style: TextStyle(fontStyle: FontStyle.italic),
+                  ),
+                  TextSpan(
+                      text: '- moduł Yanga',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      )),
+                ],
               ),
             ),
           )
