@@ -1,8 +1,10 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:giraffe/helpers/data_table_komutator.helper.dart';
 import 'package:giraffe/helpers/save_alert.dart';
 import 'package:giraffe/providers/item.dart';
 import 'package:giraffe/providers/items.dart';
+import 'package:giraffe/screens/all_screen.dart';
 import 'package:provider/provider.dart';
 
 class PierscienieKomutatoryScreen extends StatefulWidget {
@@ -32,37 +34,49 @@ class _PierscienieKomutatoryScreenState
     final komutatorData = Provider.of<Items>(context).itemsKomutator;
     // print(komutatorData);
     return Scaffold(
-      appBar: AppBar(
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: GestureDetector(
-              onTap: () {
-                saveAlertKomutatory(context, selectedtemp);
-              },
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.all(10.0),
-                  child: Text(
-                    'Zapisz',
-                    style: TextStyle(
-                      color: Color(0xFFF6A00C),
-                      fontSize: 15,
-                    ),
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(18),
-                ),
-              ),
-            ),
-          ),
-        ],
-        backgroundColor: Color(0xFFF6A00C),
-        title: Text('Pierścienie i komutatory'),
-      ),
+      
       body: Column(children: [
+        Container(
+            decoration: BoxDecoration(color: Color(0xFFF6A00C), boxShadow: [
+              BoxShadow(
+                  blurRadius: 5, offset: Offset(0, 0), color: Colors.grey),
+            ]),
+            width: double.infinity,
+            height: 80,
+            child: Row(children: [
+              IconButton(
+                  icon: Icon(
+                    Icons.chevron_left,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  }),
+              Expanded(
+                child: Column(children: [
+                  WindowTitleBarBox(
+                      child: Row(children: [
+                    Expanded(child: MoveWindow()),
+                    WindowButtons(),
+                  ])),
+                  Expanded(
+                    child: Row(children: [
+                      Expanded(
+                        child: Text(
+                          'Pierścienie i komutatory',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ),
+                ]),
+              )
+            ])),
         Row(children: [
           Expanded(
             child: Padding(
@@ -77,7 +91,7 @@ class _PierscienieKomutatoryScreenState
             ),
           ),
           Padding(
-            padding: const EdgeInsets.only(top: 20.0, right: 100),
+            padding: const EdgeInsets.only(top: 20.0, right: 50),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
                 primary: Color(0xFFF6A00C),
@@ -90,8 +104,22 @@ class _PierscienieKomutatoryScreenState
               child: Text('Wyczyść tabele'),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.only(top: 20.0, right: 80),
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Color(0xFFF6A00C),
+              ),
+              onPressed: () {
+                saveAlertKomutatory(context, fullList);
+              },
+              child: Text('Zapisz'),
+            ),
+          ),
+          
         ]),
         SizedBox(height: 50),
+        
 
         //SizedBox(width: 10),
 

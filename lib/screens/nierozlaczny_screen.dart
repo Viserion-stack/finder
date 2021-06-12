@@ -1,8 +1,10 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:giraffe/helpers/data_table_powloki_ochronne2.dart';
 import 'package:giraffe/helpers/save_alert.dart';
 import 'package:giraffe/providers/item.dart';
 import 'package:giraffe/providers/items.dart';
+import 'package:giraffe/screens/all_screen.dart';
 import 'package:giraffe/screens/powloki_ochronne_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -24,12 +26,35 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
   Widget build(BuildContext context) {
     final powlokiOchronne2Data = Provider.of<Items>(context);
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFF6A00C),
-        //title: Text('MATERIAŁY STOSOWANE NA STYKI NIEROZŁĄCZNE'),
-      ),
       body: Column(
         children: [
+          Container(
+            decoration: BoxDecoration(color: Color(0xFFF6A00C), boxShadow: [
+              BoxShadow(
+                  blurRadius: 5, offset: Offset(0, 0), color: Colors.grey),
+            ]),
+            width: double.infinity,
+            height: 60,
+            child: Row(children: [
+              IconButton(
+                  icon: Icon(
+                    Icons.chevron_left,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  }),
+              Expanded(
+                child: Column(children: [
+                  WindowTitleBarBox(
+                      child: Row(children: [
+                    Expanded(child: MoveWindow()),
+                    WindowButtons(),
+                  ])),
+                ]),
+              ),
+            ]),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 8.0, bottom: 30),
             child: Text(
@@ -115,7 +140,6 @@ class _NierozlacznyScreenState extends State<NierozlacznyScreen> {
                     setState(() {
                       selectedmaterials = [];
                     });
-                    
                   },
                   child: Center(
                       child: Text(

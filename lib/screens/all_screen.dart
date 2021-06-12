@@ -176,12 +176,15 @@ class RightSide extends StatelessWidget {
                 Expanded(child: MoveWindow()),
                 WindowButtons(),
               ])),
-              Text(
-                'MATERIAŁY STYKOWE STOSOWANE W ELEKTROTECHNICE',
-                style: GoogleFonts.quicksand(
-                  fontSize: 35,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black87,
+              Padding(
+                padding: const EdgeInsets.only(left: 30.0),
+                child: Text(
+                  'MATERIAŁY STYKOWE STOSOWANE W ELEKTROTECHNICE',
+                  style: GoogleFonts.quicksand(
+                    fontSize: 35,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black87,
+                  ),
                 ),
               ),
             ])));

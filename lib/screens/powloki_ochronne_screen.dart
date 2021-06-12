@@ -1,8 +1,11 @@
+import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
 import 'package:giraffe/helpers/data_table_powloki_ochronne.dart';
 import 'package:giraffe/helpers/data_table_powloki_ochronne2.dart';
 import 'package:giraffe/providers/item.dart';
 import 'package:giraffe/providers/items.dart';
+import 'package:giraffe/screens/all_screen.dart';
+import 'package:giraffe/helpers/save_alert.dart';
 import 'package:giraffe/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
@@ -25,12 +28,50 @@ class _PowlokiOchronneScreenState extends State<PowlokiOchronneScreen> {
     final powlokiOchronne2Data = Provider.of<Items>(context);
     const int b = 0x62;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Color(0xFFF6A00C),
-        title: Text('POWŁOKI OCHRONNE'),
-      ),
+      
       body: Column(
         children: [
+          Container(
+            decoration: BoxDecoration(color: Color(0xFFF6A00C), boxShadow: [
+              BoxShadow(
+                  blurRadius: 5, offset: Offset(0, 0), color: Colors.grey),
+            ]),
+            width: double.infinity,
+            height: 80,
+            child: Row(children: [
+              IconButton(
+                  icon: Icon(
+                    Icons.chevron_left,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  }),
+              Expanded(
+                child: Column(children: [
+                  WindowTitleBarBox(
+                      child: Row(children: [
+                    Expanded(child: MoveWindow()),
+                    WindowButtons(),
+                  ])),
+                  Expanded(
+                    child: Row(children: [
+                      Expanded(
+                        child: Text(
+                          'Pierścienie i komutatory',
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 22,
+                          ),
+                        ),
+                      ),
+                    ]),
+                  ),
+                ]),
+              )
+            ])),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
@@ -89,20 +130,15 @@ class _PowlokiOchronneScreenState extends State<PowlokiOchronneScreen> {
               ),
               Column(
                 children: [
-                  // ElevatedButton(
-                  //   style: ElevatedButton.styleFrom(
-                  //     primary: Color(0xFFF6A00C),
-                  //   ),
-                  //   onPressed: () {
-                  //     Navigator.push(
-                  //         context,
-                  //         MaterialPageRoute(builder: (context) => HomeScreen()
-                  //             //Navigator.of(context).pop();
-
-                  //             ));
-                  //   },
-                  //   child: Text('Menu Główne'),
-                  // ),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Color(0xFFF6A00C),
+                    ),
+                    onPressed: () {
+                     saveAlertPowloki(context,selectedmaterials );
+                    },
+                    child: Text('Zapisz'),
+                  ),
                   Padding(
                     padding: const EdgeInsets.only(top: 20.0),
                     child: ElevatedButton(

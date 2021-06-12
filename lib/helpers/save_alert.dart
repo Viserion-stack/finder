@@ -75,10 +75,15 @@ showAlertDialog(BuildContext context, List<Item> items) {
       ];
       String csv =
           const ListToCsvConverter(fieldDelimiter: ';').convert(csvData);
-      Directory appDocDir = await getApplicationDocumentsDirectory();
-      String appDocPath = '${appDocDir.path}/Materialy_stykowe/$nameFile.csv';
-      final File file = File(appDocPath);
-      await file.writeAsString(csv);
+       Directory appDocDir = await getApplicationDocumentsDirectory();
+        new Directory('${appDocDir.path}/Materialy_stykowe')
+            .create(recursive: true)
+            .then((Directory file) {
+          String appDocPath =
+              '${appDocDir.path}/Materialy_stykowe/$nameFile.csv';
+          final File file = File(appDocPath);
+          file.writeAsString(csv);
+        });
 
       Navigator.of(context).pop();
     },
@@ -338,9 +343,15 @@ saveAlertNierozlaczne(BuildContext context, List<ItemPowlokiOchronne2> items) {
       String csv =
           const ListToCsvConverter(fieldDelimiter: ';').convert(csvData);
       Directory appDocDir = await getApplicationDocumentsDirectory();
-      String appDocPath = '${appDocDir.path}/Materialy_stykowe/$nameFile.csv';
-      final File file = File(appDocPath);
-      await file.writeAsString(csv);
+        new Directory('${appDocDir.path}/Materialy_stykowe')
+            .create(recursive: true)
+            .then((Directory file) {
+          String appDocPath =
+              '${appDocDir.path}/Materialy_stykowe/$nameFile.csv';
+          final File file = File(appDocPath);
+          file.writeAsString(csv);
+        });
+
 
       Navigator.of(context).pop();
     },
@@ -427,3 +438,137 @@ saveAlertNierozlaczne(BuildContext context, List<ItemPowlokiOchronne2> items) {
     },
   );
 }
+  saveAlertPowloki(BuildContext context, List<ItemPowlokiOchronne2> items) {
+    String saveController = TextEditingController().text;
+
+    List row = [];
+    String csvData = '';
+    print(nameFile);
+
+    Widget saveButton = ElevatedButton(
+      onPressed: () async {
+        List<ItemPowlokiOchronne2> data = items;
+
+        List<List<String>> csvData = [
+          <String>[
+            'Material',
+            'Gestosc'.trim(),
+            'p'.trim(),
+            'lambda'.trim(),
+            'hb'.trim(),
+            'Alfa'.trim(),
+            'e'.trim(),
+            'Temperatura mieknienia'.trim(),
+            'Temperatura topnienia'.trim(),
+          ],
+          ...data.map((item) => [
+                item.material,
+                item.gestosc,
+                item.p,
+                item.lambda,
+                item.hb,
+                item.alfa,
+                item.e,
+                item.tempMieknienia,
+                item.temptopnienia,
+              ])
+        ];
+        String csv =
+            const ListToCsvConverter(fieldDelimiter: ';').convert(csvData);
+        Directory appDocDir = await getApplicationDocumentsDirectory();
+        new Directory('${appDocDir.path}/Materialy_stykowe')
+            .create(recursive: true)
+            .then((Directory file) {
+          String appDocPath =
+              '${appDocDir.path}/Materialy_stykowe/$nameFile.csv';
+          final File file = File(appDocPath);
+          file.writeAsString(csv);
+        });
+
+
+        Navigator.of(context).pop();
+      },
+      style: ElevatedButton.styleFrom(
+        primary: Colors.white,
+        elevation: 0,
+      ),
+      child: Text(
+        'Zapisz',
+        style: TextStyle(color: Colors.orange),
+      ),
+    );
+
+    Widget cancelButton = ElevatedButton(
+      onPressed: () {
+        Navigator.pop(context);
+      },
+      style: ElevatedButton.styleFrom(
+        primary: Colors.white,
+        elevation: 0,
+      ),
+      child: Text(
+        'Anuluj',
+        style: TextStyle(color: Colors.orange),
+      ),
+    );
+
+    AlertDialog alert = AlertDialog(
+      title: Text(
+        'Zapisz do pliku',
+        style: TextStyle(
+          color: Colors.orange,
+          fontSize: 15,
+        ),
+      ),
+      content: Container(
+        height: 40,
+        width: 250,
+        child: Align(
+          alignment: Alignment.topCenter,
+          child: Padding(
+            padding: const EdgeInsets.only(left: 15.0),
+            child: TextFormField(
+              onChanged: (value) {
+                nameFile = value.toString();
+              },
+              //controller: saveController,
+              decoration: InputDecoration(
+                enabledBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                  ),
+                ),
+                focusedBorder: UnderlineInputBorder(
+                  borderSide: BorderSide(
+                    color: Colors.transparent,
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ),
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(15),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey,
+                blurRadius: 2.0,
+                spreadRadius: 2.0,
+              )
+            ]),
+      ),
+      actions: [
+        saveButton,
+        cancelButton,
+      ],
+    );
+
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
