@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
+import 'package:giraffe/screens/all_material_screen.dart';
 import 'package:giraffe/screens/nierozlaczny_screen.dart';
 import 'package:giraffe/screens/rozlaczny_screen.dart';
 import 'package:giraffe/screens/styk_slizgowy_general.dart';
@@ -130,6 +131,38 @@ class LeftSide extends StatelessWidget {
                               padding: const EdgeInsets.all(10.0),
                               child: Text(
                                 'Zestyk rozłączny',
+                                style: GoogleFonts.quicksand(
+                                  fontSize: 18,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                          decoration: BoxDecoration(
+                            color: Colors.transparent,
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(color: Colors.white, width: 1),
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 100,
+                      ),
+                      
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AllMaterialsScreen()));
+                        },
+                        child: Container(
+                          width: 280,
+                          child: Center(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10.0),
+                              child: Text(
+                                'Materiały stykowe',
                                 style: GoogleFonts.quicksand(
                                   fontSize: 18,
                                   color: Colors.white,

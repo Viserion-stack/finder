@@ -8,10 +8,10 @@ import 'package:path_provider/path_provider.dart';
 String nameFile = '';
 
 showAlertDialog(BuildContext context, List<Item> items) {
-  String saveController = TextEditingController().text;
+  //String saveController = TextEditingController().text;
 
-  List row = [];
-  String csvData = '';
+  //List row = [];
+  //String csvData = '';
   print(nameFile);
 
   Widget saveButton = ElevatedButton(
@@ -174,8 +174,8 @@ showAlertDialog(BuildContext context, List<Item> items) {
 saveAlertKomutatory(BuildContext context, List<ItemKomutator> items) {
   final saveController = TextEditingController();
 
-  List row = [];
-  String csvData = '';
+ // List row = [];
+  //String csvData = '';
   print(nameFile);
 
   Widget saveButton = ElevatedButton(
@@ -306,10 +306,10 @@ saveAlertKomutatory(BuildContext context, List<ItemKomutator> items) {
 }
 
 saveAlertNierozlaczne(BuildContext context, List<ItemPowlokiOchronne2> items) {
-  String saveController = TextEditingController().text;
+  //String saveController = TextEditingController().text;
 
-  List row = [];
-  String csvData = '';
+  //List row = [];
+  //String csvData = '';
   print(nameFile);
 
   Widget saveButton = ElevatedButton(
@@ -439,10 +439,10 @@ saveAlertNierozlaczne(BuildContext context, List<ItemPowlokiOchronne2> items) {
   );
 }
   saveAlertPowloki(BuildContext context, List<ItemPowlokiOchronne2> items) {
-    String saveController = TextEditingController().text;
+    //String saveController = TextEditingController().text;
 
-    List row = [];
-    String csvData = '';
+    //List row = [];
+    //String csvData = '';
     print(nameFile);
 
     Widget saveButton = ElevatedButton(

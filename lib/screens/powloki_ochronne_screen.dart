@@ -6,7 +6,6 @@ import 'package:giraffe/providers/item.dart';
 import 'package:giraffe/providers/items.dart';
 import 'package:giraffe/screens/all_screen.dart';
 import 'package:giraffe/helpers/save_alert.dart';
-import 'package:giraffe/screens/home_screen.dart';
 import 'package:provider/provider.dart';
 
 class PowlokiOchronneScreen extends StatefulWidget {
@@ -58,7 +57,7 @@ class _PowlokiOchronneScreenState extends State<PowlokiOchronneScreen> {
                     child: Row(children: [
                       Expanded(
                         child: Text(
-                          'Pierścienie i komutatory',
+                          'POWŁOKI OCHRONNE',
                           textAlign: TextAlign.center,
                           style: TextStyle(
                             color: Colors.white,
@@ -220,7 +219,7 @@ class _PowlokiOchronneScreenState extends State<PowlokiOchronneScreen> {
                     style: TextStyle(fontStyle: FontStyle.italic),
                   ),
                   TextSpan(
-                      text: '- moduł Yanga',
+                      text: '- moduł Younga',
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       )),
