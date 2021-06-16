@@ -21,6 +21,9 @@ class _AllMaterialsScreenState extends State<AllMaterialsScreen> {
   List<String> listItem = [
     'Aluminium',
     'Miedź',
+    'Nikiel',
+    'Cyna',
+    'Srebro',
   ];
   @override
   Widget build(BuildContext context) {
@@ -95,7 +98,7 @@ class _AllMaterialsScreenState extends State<AllMaterialsScreen> {
                       value: valueChoose,
                       onChanged: (String value) {
                         setState(() {
-                          if (selectedmaterials.length < 4) {
+                          if (selectedmaterials.length < 100) {
                             valueChoose = value;
                             print(valueChoose);
                             var value1 = allMaterialData
@@ -183,10 +186,15 @@ class _AllMaterialsScreenState extends State<AllMaterialsScreen> {
           SizedBox(
             height: 60,
           ),
-          TabelkaPowlokiOchronne2(
-            itemsPowlokiOchronne2: selectedmaterials,
+          Expanded(
+                      child: SingleChildScrollView(
+              scrollDirection: Axis.vertical,
+              child: TabelkaPowlokiOchronne2(
+                itemsPowlokiOchronne2: selectedmaterials,
+              ),
+            ),
           ),
-          Expanded(child: Container()),
+          //Expanded(child: Container()),
           Container(
             padding: EdgeInsets.only(bottom: 20),
             alignment: Alignment.bottomCenter,
@@ -218,11 +226,11 @@ class _AllMaterialsScreenState extends State<AllMaterialsScreen> {
                         fontWeight: FontWeight.bold,
                       )),
                   TextSpan(
-                    text: 'H' ,
+                    text: 'H',
                     style: TextStyle(fontStyle: FontStyle.italic),
                   ),
                   TextSpan(
-                    text: 'b ' ,
+                    text: 'b ',
                     style: TextStyle(fontStyle: FontStyle.italic, fontSize: 10),
                   ),
                   TextSpan(

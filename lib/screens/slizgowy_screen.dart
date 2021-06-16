@@ -248,7 +248,7 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                               )
                             : ListView(
                                 children: [
-                                  buildToggleCheckbox(allowNotifications),
+                                  //buildToggleCheckbox(allowNotifications),
                                   Divider(),
                                   ...notifications
                                       .map(buildSingleCheckbox)
