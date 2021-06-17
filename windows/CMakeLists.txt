@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
-project(giraffe LANGUAGES CXX)
+project(materialy_stykowe LANGUAGES CXX)
 
-set(BINARY_NAME "giraffe")
+set(BINARY_NAME "materialy_stykowe")
 
 cmake_policy(SET CMP0063 NEW)
 

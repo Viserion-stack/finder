@@ -1,4 +1,4 @@
-import 'package:giraffe/helpers/model.dart';
+import '../helpers/model.dart';
 
 List<NotificationSetting> setlistItemsToListView(int value) {
   List<NotificationSetting> listItemsToListView = [];

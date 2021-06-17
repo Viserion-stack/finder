@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:giraffe/providers/item.dart';
+import '../providers/item.dart';
 
 class Tabelka extends StatelessWidget {
   final List<Item> items;

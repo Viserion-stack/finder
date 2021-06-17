@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:giraffe/providers/item.dart';
+import '../providers/item.dart';
 
 class TabelkaPowlokiOchronne2 extends StatelessWidget {
   final List<ItemPowlokiOchronne2> itemsPowlokiOchronne2;

@@ -1,9 +1,11 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
-import 'package:giraffe/providers/items.dart';
-import 'package:giraffe/screens/home_screen.dart';
+
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
+
+import 'providers/items.dart';
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(MyApp());

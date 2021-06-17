@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:bitsdojo_window/bitsdojo_window.dart';
-import 'package:giraffe/screens/all_material_screen.dart';
-import 'package:giraffe/screens/nierozlaczny_screen.dart';
-import 'package:giraffe/screens/rozlaczny_screen.dart';
-import 'package:giraffe/screens/styk_slizgowy_general.dart';
+import '../screens/all_material_screen.dart';
+import '../screens/nierozlaczny_screen.dart';
+import '../screens/rozlaczny_screen.dart';
+import '../screens/styk_slizgowy_general.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class HomeWindow extends StatefulWidget {
@@ -16,11 +16,7 @@ class _HomeWindowState extends State<HomeWindow> {
   Widget build(BuildContext context) {
     //_onAlertButtonsPressed();
     return Scaffold(
-      body: WindowBorder(
-        color: Colors.black,
-        width: 1,
-        child: Row(children: [LeftSide(), RightSide()]),
-      ),
+      body: Row(children: [LeftSide(), RightSide()]),
     );
   }
 }
@@ -36,7 +32,7 @@ class LeftSide extends StatelessWidget {
             color: sidebarColor,
             child: Column(
               children: [
-                WindowTitleBarBox(child: MoveWindow()),
+                // WindowTitleBarBox(child: MoveWindow()),
                 Expanded(
                     child: Container(
                   child: Column(
@@ -148,7 +144,6 @@ class LeftSide extends StatelessWidget {
                       SizedBox(
                         height: 100,
                       ),
-                      
                       GestureDetector(
                         onTap: () {
                           Navigator.push(
@@ -204,11 +199,11 @@ class RightSide extends StatelessWidget {
                   stops: [0.0, 1.0]),
             ),
             child: Column(children: [
-              WindowTitleBarBox(
-                  child: Row(children: [
-                Expanded(child: MoveWindow()),
-                WindowButtons(),
-              ])),
+              // WindowTitleBarBox(
+              //     child: Row(children: [
+              //   Expanded(child: MoveWindow()),
+              //   WindowButtons(),
+              // ])),
               Padding(
                 padding: const EdgeInsets.only(left: 30.0),
                 child: Text(

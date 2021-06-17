@@ -1,11 +1,11 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
-import 'package:giraffe/helpers/data_table_helper.dart';
-import 'package:giraffe/helpers/save_alert.dart';
-import 'package:giraffe/helpers/unsplash_helper.dart';
-import 'package:giraffe/helpers/model.dart';
-import 'package:giraffe/providers/item.dart';
-import 'package:giraffe/providers/items.dart';
+import '../helpers/data_table_helper.dart';
+import '../helpers/save_alert.dart';
+import '../helpers/unsplash_helper.dart';
+import '../helpers/model.dart';
+import '../providers/item.dart';
+import '../providers/items.dart';
 import 'package:provider/provider.dart';
 
 class SlizgowyScreen extends StatefulWidget {
@@ -95,11 +95,11 @@ class _SlizgowyScreenState extends State<SlizgowyScreen> {
                   }),
               Expanded(
                 child: Column(children: [
-                  WindowTitleBarBox(
-                      child: Row(children: [
-                    Expanded(child: MoveWindow()),
-                    WindowButtons(),
-                  ])),
+                  // WindowTitleBarBox(
+                  //     child: Row(children: [
+                  //   Expanded(child: MoveWindow()),
+                  //   WindowButtons(),
+                  // ])),
                   Expanded(
                     child: Row(children: [
                       Expanded(

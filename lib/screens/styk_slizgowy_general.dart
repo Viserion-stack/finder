@@ -1,7 +1,7 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
-import 'package:giraffe/screens/pierscienie_i_komutatory_screen.dart';
-import 'package:giraffe/screens/slizgowy_screen.dart';
+import '../screens/pierscienie_i_komutatory_screen.dart';
+import '../screens/slizgowy_screen.dart';
 
 class SlizgowyGeneralScreen extends StatelessWidget {
   const SlizgowyGeneralScreen({Key key}) : super(key: key);
@@ -29,11 +29,11 @@ class SlizgowyGeneralScreen extends StatelessWidget {
                   }),
               Expanded(
                 child: Column(children: [
-                  WindowTitleBarBox(
-                      child: Row(children: [
-                    Expanded(child: MoveWindow()),
-                    WindowButtons(),
-                  ])),
+                  // WindowTitleBarBox(
+                  //     child: Row(children: [
+                  //   Expanded(child: MoveWindow()),
+                  //   WindowButtons(),
+                  // ])),
                   Expanded(
                     child: Row(children: [
                       Expanded(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 //import 'package:giraffe/helpers/unsplash_helper.dart';
-import 'package:giraffe/providers/item.dart';
+import '../providers/item.dart';
 
 class Items with ChangeNotifier {
   //List<Item> _items = [];

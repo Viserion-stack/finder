@@ -1,9 +1,9 @@
 import 'package:bitsdojo_window/bitsdojo_window.dart';
 import 'package:flutter/material.dart';
-import 'package:giraffe/helpers/data_table_powloki_ochronne2.dart';
-import 'package:giraffe/helpers/save_alert.dart';
-import 'package:giraffe/providers/item.dart';
-import 'package:giraffe/providers/items.dart';
+import '../helpers/data_table_powloki_ochronne2.dart';
+import '../helpers/save_alert.dart';
+import '../providers/item.dart';
+import '../providers/items.dart';
 import 'package:provider/provider.dart';
 
 import 'all_screen.dart';
@@ -47,15 +47,15 @@ class _AllMaterialsScreenState extends State<AllMaterialsScreen> {
                   onPressed: () {
                     Navigator.of(context).pop();
                   }),
-              Expanded(
-                child: Column(children: [
-                  WindowTitleBarBox(
-                      child: Row(children: [
-                    Expanded(child: MoveWindow()),
-                    WindowButtons(),
-                  ])),
-                ]),
-              ),
+              // Expanded(
+              //   child: Column(children: [
+              //     WindowTitleBarBox(
+              //         child: Row(children: [
+              //       Expanded(child: MoveWindow()),
+              //       WindowButtons(),
+              //     ])),
+              //   ]),
+              // ),
             ]),
           ),
           Padding(
